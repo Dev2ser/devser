@@ -47,8 +47,8 @@ class Login extends Component {
       <div class="login-container">
         <section class="login" id="login">
           <header>
-            <h2>Program Login</h2>
-            <h4>Login</h4>
+            <h2>Registration</h2>
+            <h4>Lemon-it</h4>
           </header>
           <form class="login-form">
             <input
