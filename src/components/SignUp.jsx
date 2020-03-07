@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./App.css";
-import fire from "./config/Fire";
-import Home from "./components/Dashboard";
-import Login from "./components/Login";
+import "../App.css";
+import fire from "../config/Fire";
+import Home from "./Home";
+import Login from "./Login";
 
-class App extends Component {
+class SignUp extends Component {
   constructor() {
     super();
     this.state = {
@@ -35,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default SignUp;
