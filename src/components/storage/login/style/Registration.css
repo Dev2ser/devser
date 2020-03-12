@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 
-body {
+.registration-body {
   display: flex;
   flex-direction: column;
   justify-content: center;

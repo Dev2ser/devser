@@ -18,7 +18,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>Hello Bros!</h1>
-        <button class="btn btn-danger" style={styles} onClick={this.logout}>
+        <button className="btn btn-danger" style={styles} onClick={this.logout}>
           Logout!
         </button>
       </div>

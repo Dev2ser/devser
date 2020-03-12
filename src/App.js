@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import fire from "./config/Fire";
 import Home from "./components/Dashboard";
-import Login from "./components/Login";
+import SignIn from "./components/SignIn";
+import Dashboard from "./components/ui/dashboard/Dashboard";
 
 class App extends Component {
   constructor() {
@@ -31,7 +32,9 @@ class App extends Component {
   }
 
   render() {
-    return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
+    return (
+      <div className="App">{this.state.user ? <Dashboard /> : <SignIn />}</div>
+    );
   }
 }
 
