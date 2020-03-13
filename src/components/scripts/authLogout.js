@@ -1,7 +1,7 @@
-import fire from "C:/Users/robow_000/Documents/Projects/edu_projects/src/config/Fire.js";
+import fire from ''
 
 const Logout = () => {
-  fire.auth().signOut();
-};
+  fire.auth().signOut()
+}
 
-export default Logout;
+export default Logout
