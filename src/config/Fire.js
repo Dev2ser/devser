@@ -1,14 +1,15 @@
-import firebase from "firebase";
+import firebase from 'firebase'
 
 const config = {
-  apiKey: "AIzaSyBx_XMAGdWgneHNtqjNmE2ePmi39x-04ok",
-  authDomain: "h0school-apps.firebaseapp.com",
-  databaseURL: "https://h0school-apps.firebaseio.com",
-  projectId: "h0school-apps",
-  storageBucket: "h0school-apps.appspot.com",
-  messagingSenderId: "53926280771",
-  appId: "1:53926280771:web:7960220cd0233697c41ef6"
-};
+  apiKey: 'AIzaSyBFjYqbNvGVarL7OI8nBO7GuHqusEBb408',
+  authDomain: 'lemonco-bff8d.firebaseapp.com',
+  databaseURL: 'https://lemonco-bff8d.firebaseio.com',
+  projectId: 'lemonco-bff8d',
+  storageBucket: 'lemonco-bff8d.appspot.com',
+  messagingSenderId: '820860844282',
+  appId: '1:820860844282:web:2bbf9f77e2999ac59d3143',
+  measurementId: 'G-8PVSZ6GMDZ'
+}
 // Initialize Firebase
-const fire = firebase.initializeApp(config);
-export default fire;
+const fire = firebase.initializeApp(config)
+export default fire
