@@ -1,5 +1,3 @@
-import fire from ''
-
 const Logout = () => {
   fire.auth().signOut()
 }

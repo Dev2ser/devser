@@ -22,7 +22,6 @@ import { mainListItems, secondaryListItems } from './listItems'
 import Chart from './Chart'
 import Deposits from './Deposits'
 import Orders from './Orders'
-import Logout from ''
 
 function Copyright() {
   return (
