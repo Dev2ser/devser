@@ -4,14 +4,17 @@ import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-// Firebase
-import fire from "../config/Fire";
+import { Link as Linker } from "react-router-dom";
+
+// Firebase init
+import fire from "../../config/Fire";
 
 function Copyright() {
   return (
@@ -28,7 +31,7 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -90,6 +93,7 @@ export default function SignIn() {
             fullWidth
             id="email"
             label="Email Address"
+            type="email"
             name="email"
             autoComplete="email"
             autoFocus
@@ -117,6 +121,16 @@ export default function SignIn() {
           >
             Sign In
           </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Linker to="/signup">{"Don't have an account? Sign Up"}</Linker>
+            </Grid>
+          </Grid>
         </form>
       </div>
       <Box mt={8}>

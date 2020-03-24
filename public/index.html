@@ -36,5 +36,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script defer src="/__/firebase/7.11.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+    <!-- Add the Performance Monitoring library -->
+    <script defer src="/__/firebase/7.11.0/firebase-performance.js"></script>
+
+    <!-- Initialize Performance Monitoring and get a reference to the service -->
+    <script defer>
+      var perf = firebase.performance();
+    </script>
   </body>
 </html>

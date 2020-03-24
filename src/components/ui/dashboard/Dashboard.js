@@ -23,6 +23,8 @@ import Chart from './Chart'
 import Deposits from './Deposits'
 import Orders from './Orders'
 
+import Logout from './../../scripts/authLogout'
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -206,7 +208,7 @@ export default function Dashboard() {
           </Box>
         </Container>
       </main>
-      <button>Logout!</button>
+      <button onClick={Logout}>Logout!</button>
     </div>
   )
 }
