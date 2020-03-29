@@ -63,13 +63,24 @@ const lightTheme = [
   "--background: white"
 ];
 
+// const darkTheme = [
+//   "--border: rgba(255,255,255,.1)",
+//   "--shadow: #000",
+//   "--heading: rgba(255,255,5,.9)",
+//   "--main: #79248f",
+//   "--text: rgb(255, 255, 255)",
+//   "--textAlt: #fff",
+//   "--inactive: rgba(255,255,255,.3)",
+//   "--background: #2D2D2D"
+// ];
+
 const darkTheme = [
-  "--border: rgba(255,255,255,.1)",
+  "--border: #63B0CD",
   "--shadow: #000",
-  "--heading: rgba(255,255,5,.9)",
-  "--main: #79248f",
-  "--text: rgb(255, 255, 255)",
-  "--textAlt: #fff",
-  "--inactive: rgba(255,255,255,.3)",
-  "--background: #2D2D2D"
+  "--heading: #9B9B93",
+  "--main: #63B0CD",
+  "--text: #E9D2F4",
+  "--textAlt: #C1B098",
+  "--inactive: #63B0CD",
+  "--background: #39393A"
 ];

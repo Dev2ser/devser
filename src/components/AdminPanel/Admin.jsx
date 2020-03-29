@@ -4,7 +4,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function AdminPanel() {
   const logout = () => {
-    fire.auth().signOut();
+    fire
+      .auth()
+      .signOut()
+      .then(console.log("Signed Out"));
   };
 
   const styles = {

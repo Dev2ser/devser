@@ -1,5 +1,7 @@
 import React from "react";
 import PageNotFound from "../assets/images/PageNotFound.png";
+import { Link } from 'react-router-dom'
+
 const NotFound = () => (
   <div>
     {
@@ -23,6 +25,7 @@ const NotFound = () => (
       >
         Page Not Found
       </p>
+      <Link to="/">Return to Home Page</Link>
     </center>
   </div>
 );

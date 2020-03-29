@@ -66,9 +66,15 @@ export default function SignUp() {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(u => {})
       .then(u => {
-        console.log(u);
+        const user = fire.auth().currentUser;
+        user.sendEmailVerification();
+      })
+      .then(u => {
+        console.log(
+          "Successfully Created The User With The Following Credentials:",
+          u
+        );
       })
       .catch(error => {
         console.log(error);

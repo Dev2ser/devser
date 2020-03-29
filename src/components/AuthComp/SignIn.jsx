@@ -66,7 +66,9 @@ export default function SignIn() {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(u => {})
+      .then(u => {
+        console.log("Current User:", u);
+      })
       .catch(error => {
         console.log(error);
       });
@@ -123,12 +125,14 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Linker to="/reset-password" variant="body2">
                 Forgot password?
-              </Link>
+              </Linker>
             </Grid>
             <Grid item>
-              <Linker to="/signup">{"Don't have an account? Sign Up"}</Linker>
+              <Linker to="/signup" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Linker>
             </Grid>
           </Grid>
         </form>
