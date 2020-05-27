@@ -3,6 +3,7 @@
   "short_name": "Devser",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
+  "description": "Devser's platform for projects and other services",
   "display": "standalone",
   "start_url": ".",
   "icons": [
