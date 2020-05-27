@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import fire from "../config/Fire";
+import fire from "../config/base";
 import Home from "./Home";
 import Login from "./Login";
 
@@ -8,7 +8,7 @@ class SignUp extends Component {
   constructor() {
     super();
     this.state = {
-      user: null
+      user: null,
     };
     this.authListener = this.authListener.bind(this);
   }
@@ -18,7 +18,7 @@ class SignUp extends Component {
   }
 
   authListener() {
-    fire.auth().onAuthStateChanged(user => {
+    fire.auth().onAuthStateChanged((user) => {
       console.log(user);
       if (user) {
         this.setState({ user });

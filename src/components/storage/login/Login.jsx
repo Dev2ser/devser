@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fire from "../config/Fire";
+import fire from "../config/base";
 import "./style/Registration.css";
 
 class Login extends Component {
@@ -12,7 +12,7 @@ class Login extends Component {
     */
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
 
@@ -25,8 +25,8 @@ class Login extends Component {
     fire
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(u => {})
-      .catch(error => {
+      .then((u) => {})
+      .catch((error) => {
         console.log(error);
       });
   }

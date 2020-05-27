@@ -1,7 +1,7 @@
-import fire from './../../config/Fire'
+import fire from "./../../config/base";
 
 const Logout = () => {
-  fire.auth().signOut()
-}
+  fire.auth().signOut();
+};
 
-export default Logout
+export default Logout;

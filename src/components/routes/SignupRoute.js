@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SignUp from "../AuthComp/SignUp";
+import SignUp from "../Auth/SignUp";
 import { Redirect } from "react-router-dom";
 
 export default class RouteAuth extends Component {
@@ -7,6 +7,7 @@ export default class RouteAuth extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return <div>{this.props.user ? <Redirect to="/" /> : <SignUp />}</div>;
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ResetPass from "../AuthComp/ResetPass";
+import ResetPass from "../Auth/ResetPass";
 import { Redirect } from "react-router-dom";
 
 export default class RouteAuth extends Component {

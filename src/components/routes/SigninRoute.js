@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import AdminPanel from "../AdminPanel/Admin";
-import SignIn from "../AuthComp/SignIn";
+import AdminPanel from "../Admin";
+import SignIn from "../Auth/SignIn";
 
 export default class SigninRoute extends Component {
   // eslint-disable-next-line

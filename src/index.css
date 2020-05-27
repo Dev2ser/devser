@@ -31,7 +31,6 @@ h2 {
 *:not(body) {
   transition: all 0.5s ease;
 }
-
 /* All other styles */
 body {
   margin: 0;
