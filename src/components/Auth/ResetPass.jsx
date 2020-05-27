@@ -37,7 +37,7 @@ const ResetPass = () => {
   return (
     <div className="mt-8 text-center">
       <Helmet>
-        <title>Reset Password | LemonCo</title>
+        <title>Reset Password | Devser</title>
       </Helmet>
       <h1 className="text-xl text-center font-bold mb-3">
         Reset your Password

@@ -18,7 +18,7 @@ function AdminPanel() {
   return (
     <div className="align-items-center" style={{ height: "100%" }}>
       <Helmet>
-        <title>Home | LemonCo</title>
+        <title>Console | LemonCo</title>
       </Helmet>
       <h1
         style={{

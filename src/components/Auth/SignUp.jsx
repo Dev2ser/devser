@@ -95,7 +95,7 @@ export default function SignUp() {
     <Grow in={true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
         <Helmet>
-          <title>Sign-Up | LemonCo</title>
+          <title>Sign-Up | Devser</title>
         </Helmet>
         <CssBaseline />
         <div className={classes.paper}>

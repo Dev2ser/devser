@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 const NotFound = () => (
   <div>
     <Helmet>
-      <title>NotFound | LemonCo</title>
+      <title>NotFound | Devser</title>
     </Helmet>
     {
       <img
