@@ -6,7 +6,6 @@ import Dashboard from "./components/ui/dashboard/Dashboard";
 import NotFound from "./components/pages/NotFound/";
 import UserController from "./components/ui/user-control/UserController";
 import SlideView from "./components/SlideView";
-import Switcher from "./components/themes/Switch";
 import { Route, Switch } from "react-router-dom";
 import SigninRoute from "./components/routes/SigninRoute";
 import SignupRoute from "./components/routes/SignupRoute";
@@ -65,7 +64,6 @@ export default class App extends Component {
           <Route exact path={"/pdf"} component={pdfViewer} />
           <Route component={NotFound} />
         </Switch>
-        <Switcher />
       </div>
     );
   }

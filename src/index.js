@@ -1,18 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import { ThemeProvider } from "./components/themes/ThemeContext";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HttpsRedirect from 'react-https-redirect';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { ThemeProvider } from './components/themes/ThemeContext';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
+	<HttpsRedirect>
+		<BrowserRouter>
+			<ThemeProvider>
+				<App />
+			</ThemeProvider>
+		</BrowserRouter>
+	</HttpsRedirect>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

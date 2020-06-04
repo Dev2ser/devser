@@ -8,6 +8,6 @@ export default class SigninRoute extends Component {
     super(props);
   }
   render() {
-    return <div>{this.props.user ? <AdminPanel /> : <SignIn />}</div>;
+    return <div>{this.props.user ? <AdminPanel/> : <SignIn />}</div>;
   }
 }

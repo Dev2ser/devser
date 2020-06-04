@@ -1,4 +1,7 @@
 import firebase from "firebase";
+import "firebase/analytics";
+import "firebase/performance";
+import "firebase/firestore";
 
 const config = {
   apiKey: "AIzaSyCK5MmJrfVw-ZxmnuBDle2qXHmCYFG5J1Q",
@@ -12,4 +15,8 @@ const config = {
 };
 // Initialize Firebase
 const fire = firebase.initializeApp(config);
+
+export const analytics = fire.analytics();
+export const perf = fire.performance();
+export const db = fire.firestore();
 export default fire;
