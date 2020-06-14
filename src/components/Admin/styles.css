@@ -3,6 +3,8 @@
 }
 
 .state {
+	font-family: "Poppins";
+	font-weight: 900;
 	width: auto;
 	position: absolute;
 	right: 112px;

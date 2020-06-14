@@ -6,14 +6,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from './components/themes/ThemeContext';
 import { BrowserRouter } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 
 ReactDOM.render(
 	<HttpsRedirect>
-		<BrowserRouter>
-			<ThemeProvider>
-				<App />
-			</ThemeProvider>
-		</BrowserRouter>
+		<ErrorBoundary render={() => <p>Oops! an error occurred, Try again later.</p>}>
+			<BrowserRouter>
+				<ThemeProvider>
+					<App />
+				</ThemeProvider>
+			</BrowserRouter>
+		</ErrorBoundary>
 	</HttpsRedirect>,
 	document.getElementById('root')
 );

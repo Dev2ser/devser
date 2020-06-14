@@ -1,0 +1,21 @@
+.cv {
+	box-sizing: border-box;
+	color: #fff;
+	background-color: #db3b61;
+	border: 2px #fff solid;
+	&:hover {
+		color: #db3b61;
+		background-color: #fff;
+		border: 2px #db3b61 solid;
+	}
+}
+
+.skills {
+	box-sizing: border-box;
+	color: #db3b61;
+	border: 1px #db3b61 solid;
+	&:hover {
+		color: #fff;
+		background-color: #db3b61;
+	}
+}

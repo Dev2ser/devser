@@ -28,6 +28,7 @@
 		"firebaseui": "^4.5.0",
 		"history": "^4.10.1",
 		"jquery": "^3.4.1",
+		"node-sass": "^4.14.1",
 		"popper.js": "^1.16.1",
 		"prop-types": "^15.7.2",
 		"pspdfkit": "^2020.2.4",
@@ -44,12 +45,14 @@
 		"recharts": "^2.0.0-beta.2",
 		"simple-react-router": "0.0.17",
 		"slick-carousel": "^1.8.1",
-		"styled-components": "^5.0.1"
+		"styled-components": "^5.0.1",
+		"tailwindcss": "^1.4.6"
 	},
 	"scripts": {
+		"build:tailwind": "tailwindcss build src/components/pages/UI/utils/tailwind.css -o src/components/pages/UI/utils/tailwind.generated.css",
 		"verify-installation": "node scripts/verify-install.js && node scripts/copy-pspdfkit-files.js",
-		"prestart": "npm run verify-installation",
-		"prebuild": "npm run verify-installation",
+		"prestart": "npm run build:tailwind && npm run verify-installation",
+		"prebuild": "npm run build:tailwind && npm run verify-installation",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",

@@ -91,33 +91,33 @@ export default function SignIn() {
 			});
 	};
 
-	const loginWithGoogle = (e) => {
-		e.preventDefault();
-		var provider = new firebase.auth.GoogleAuthProvider();
-		fire.auth().signInWithRedirect(provider);
-		fire
-			.auth()
-			.getRedirectResult()
-			.then(function(result) {
-				if (result.credential) {
-					// This gives you a Google Access Token. You can use it to access the Google API.
-					var token = result.credential.accessToken;
-				}
-				// The signed-in user info.
-				var user = result.user;
-				console.log('provider_token: ' + user);
-			})
-			.catch(function(error) {
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				// The email of the user's account used.
-				var email = error.email;
-				// The firebase.auth.AuthCredential type that was used.
-				var credential = error.credential;
-				isError(true);
-				setErrorMessage(errorMessage);
-			});
-	};
+	// const loginWithGoogle = (e) => {
+	// 	e.preventDefault();
+	// 	var provider = new firebase.auth.GoogleAuthProvider();
+	// 	fire.auth().signInWithRedirect(provider);
+	// 	fire
+	// 		.auth()
+	// 		.getRedirectResult()
+	// 		.then(function(result) {
+	// 			if (result.credential) {
+	// 				// This gives you a Google Access Token. You can use it to access the Google API.
+	// 				var token = result.credential.accessToken;
+	// 			}
+	// 			// The signed-in user info.
+	// 			var user = result.user;
+	// 			console.log('provider_token: ' + user);
+	// 		})
+	// 		.catch(function(error) {
+	// 			var errorCode = error.code;
+	// 			var errorMessage = error.message;
+	// 			// The email of the user's account used.
+	// 			var email = error.email;
+	// 			// The firebase.auth.AuthCredential type that was used.
+	// 			var credential = error.credential;
+	// 			isError(true);
+	// 			setErrorMessage(errorMessage);
+	// 		});
+	// };
 
 	const classes = useStyles();
 	return (
