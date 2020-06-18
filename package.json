@@ -1,16 +1,11 @@
 {
-	"name": "edu_projects",
+	"name": "devser",
 	"version": "0.1.0",
 	"description": "a platform to help me organize my time and work",
+	"author": "Yasser",
+	"bugs": "devser.co@gmail.com",
 	"private": true,
-	"keywords": [
-		"web",
-		"viewer",
-		"react",
-		"firebase",
-		"db",
-		"systems"
-	],
+	"keywords": [ "web", "viewer", "react", "firebase", "db", "systems" ],
 	"engines": {
 		"npm": "6.12.0",
 		"node": "12.13.0"
@@ -62,22 +57,16 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
+		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
 	},
 	"devDependencies": {
 		"@types/jest": "^25.1.4",
 		"cross-env": "^5.2.1",
 		"first-input-delay": "^0.1.3",
+		"grunt": "^1.1.0",
 		"ncp": "^2.0.0",
 		"react-test-renderer": "^16.13.0"
-	}
+	},
+	"license": "MIT"
 }
