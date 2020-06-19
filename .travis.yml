@@ -1,9 +1,13 @@
 language: node_js
 node_js:
-  - "12.13.0"
+  - '12.13.0'
 script:
-  - npm install
+  - npm test
 install:
-  - npm install -g firebase-tools
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - npm install
+# after_success:
+#   - firebase deploy --token $FIREBASE_TOKEN
+deploy:
+  provider: firebase
+  token:
+    secure: '1//03L-qkb85Cr3nCgYIARAAGAMSNwF-L9IrA6hf5O0m5vb0YObs55LxSOGDThkYMjFTSthIvBSwIaVQWWucjr9hA271UgEF98D3vUc'
