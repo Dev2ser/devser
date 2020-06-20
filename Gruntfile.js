@@ -3,7 +3,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     bump: {
       options: {
-        files: ['-a'],
+        files: ['package.json'],
         updateConfigs: [],
         commit: true,
         commitMessage: 'Release v%VERSION%',
