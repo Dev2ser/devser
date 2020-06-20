@@ -1,5 +1,5 @@
 /*!
- * PSPDFKit for Web 2020.2.5 (https://pspdfkit.com/web)
+ * PSPDFKit for Web 2020.2.6 (https://pspdfkit.com/web)
  * 
  * Copyright (c) 2016-2019 PSPDFKit GmbH. All rights reserved.
  * 
