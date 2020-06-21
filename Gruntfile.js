@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         updateConfigs: [],
         commit: true,
         commitMessage: 'Release v%VERSION%',
-        commitFiles: ['package.json'],
+        commitFiles: ['-a'],
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
@@ -43,6 +43,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-changelog');
 
   // Default task(s).
-  grunt.registerTask('default', ['bump, changelog']);
+  grunt.registerTask('default', ['bump']);
 };
 // dest: 'release-notes/<%= package.version %>.txt',
