@@ -38,6 +38,8 @@ module.exports = function (grunt) {
     changelog: {
       sample: {
         options: {
+          fileHeader: '# Changelog',
+          dest: 'CHANGELOG',
           logArguments: [
             '--pretty=* %h - %ad: %s',
             '--no-merges',
