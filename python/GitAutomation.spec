@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['GitAutomation.py'],
+a = Analysis(['Gitautomation.py'],
              pathex=['C:\\Users\\robow_000\\Documents\\code\\devser\\python'],
              binaries=[],
              datas=[],
@@ -23,7 +23,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='GitAutomation',
+          name='Gitautomation',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
