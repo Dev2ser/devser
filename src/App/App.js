@@ -10,7 +10,7 @@ import { PrivateRoute } from '../routes/PrivateRoute';
 
 import NotFound from '../pages/NotFound';
 // import pdfViewer from '../pages/PDFViewer';
-// import { HomePage } from './components/pages/UI';
+import Portfolio from '../pages/Portfolio';
 
 export default class App extends Component {
   constructor() {
@@ -60,7 +60,7 @@ export default class App extends Component {
             )}
           />
           {/* <Route exact path={'/pdf'} component={pdfViewer} /> */}
-          {/* <Route exact path={'/home'} component={HomePage} /> */}
+          <Route exact path={'/portfolio'} component={Portfolio} />
           <Route component={NotFound} />
         </Switch>
       </div>

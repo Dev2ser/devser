@@ -1,5 +1,6 @@
-html,
-body,
+@import '../utils/partials/_variables.css';
+
 .App {
   height: 100vh;
+  background: var(--background);
 }

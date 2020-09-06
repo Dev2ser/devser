@@ -331,7 +331,9 @@ export default function SignUp() {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Linker to="/">{'Already have an account? Sign in'}</Linker>
+                <Linker to="/" className="link">
+                  {'Already have an account? Sign in'}
+                </Linker>
               </Grid>
             </Grid>
             {error && (

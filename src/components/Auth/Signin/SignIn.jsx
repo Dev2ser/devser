@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -120,6 +120,10 @@ export default function SignIn() {
   // 		});
   // };
 
+  useEffect(() => {
+    require('./SignIn.scss');
+  });
+
   const classes = useStyles();
   return (
     <Grow in={true} mountOnEnter unmountOnExit>
@@ -186,12 +190,12 @@ export default function SignIn() {
 						</Button> */}
             <Grid container>
               <Grid item xs>
-                <Linker to="/reset-password" variant="body2">
+                <Linker to="/reset-password" variant="body2" className="link">
                   Forgot password?
                 </Linker>
               </Grid>
               <Grid item>
-                <Linker to="/signup" variant="body2">
+                <Linker to="/signup" variant="body2" className="link">
                   {"Don't have an account? Sign Up"}
                 </Linker>
               </Grid>

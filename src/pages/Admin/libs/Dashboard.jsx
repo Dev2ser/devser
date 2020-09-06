@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import fire from '../../../config/base';
-import 'bootstrap/dist/css/bootstrap.css';
-import '../scss/Dashboard.scss';
 import { Helmet } from 'react-helmet';
 import { Switch } from '../../../components';
 import { Logout } from '../../../service/Authentication';
 
-function AdminPanel() {
+export default function Dashboard() {
   const user = fire.auth().currentUser;
+
+  useEffect(() => {
+    require('bootstrap/dist/css/bootstrap.css');
+    require('../scss/Dashboard.scss');
+  });
 
   return (
     <div className="align-items-center parent">
@@ -15,7 +18,7 @@ function AdminPanel() {
         <title>Console | Devser</title>
       </Helmet>
       <Switch />
-      <h3 className="state">Logged in as {user.email}!</h3>
+      <h3 className="state">Logged in as {user.displayName}!</h3>
       <button
         data-testid="logout-btn"
         className="btn btn-danger logout"
@@ -26,4 +29,3 @@ function AdminPanel() {
     </div>
   );
 }
-export default AdminPanel;

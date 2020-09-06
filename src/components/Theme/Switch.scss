@@ -1,0 +1,42 @@
+@import '../../utils/partials/_variables.css';
+
+/* Transitons for smooth theme change */
+*:not(body) {
+  transition: all 0.5s ease;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+.Switch {
+  width: 4rem;
+  height: 2rem;
+  margin: 0rem 0;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: var(--border);
+  border-style: solid;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 4px 4px 10px -3px black;
+  background: none;
+  padding: 0;
+  .icon {
+    font-size: 1.3rem;
+  }
+}
+
+.icon {
+  color: var(--inactive);
+}
+
+.active {
+  color: var(--heading);
+}
