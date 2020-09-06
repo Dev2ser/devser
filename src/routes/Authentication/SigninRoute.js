@@ -9,6 +9,10 @@ export default class SigninRoute extends Component {
     super(props);
   }
   render() {
-    return <div>{this.props.user ? <Admin /> : <SignIn />}</div>;
+    return (
+      <React.Fragment>
+        {this.props.user ? <Admin /> : <SignIn />}
+      </React.Fragment>
+    );
   }
 }

@@ -35,7 +35,9 @@
     "firebase-admin": "^8.9.2",
     "firebaseui": "^4.5.0",
     "history": "^4.10.1",
-    "jquery": "^3.4.1",
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.5.1",
+    "magnific-popup": "^1.1.0",
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
@@ -57,7 +59,9 @@
     "tailwindcss": "^1.4.6"
   },
   "scripts": {
+    "python:git": "cd python/dist && GitAutomation.exe",
     "build:tailwind": "tailwindcss build src/utils/tailwind.css -o src/utils/tailwind.generated.css",
+    "build:storybook": "build-storybook -s public",
     "verify-installation": "node scripts/verify-install.js && node scripts/copy-pspdfkit-files.js",
     "prestart": "npm run build:tailwind && npm run verify-installation",
     "prebuild": "npm run build:tailwind && npm run verify-installation",
@@ -66,7 +70,8 @@
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -84,6 +89,11 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.2",
+    "@storybook/react": "^5.3.19",
     "@types/jest": "^25.1.4",
     "cross-env": "^5.2.1",
     "first-input-delay": "^0.1.3",
