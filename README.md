@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/RobertJoining/edu_project.svg?branch=master)](https://travis-ci.com/RobertJoining/edu_project) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

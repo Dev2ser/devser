@@ -9,14 +9,17 @@ import TimelineItem from './TimelineItem';
 // 		</div>
 // 	);
 
-class Timeline extends React.Component {
+export default class Timeline extends React.Component {
   componentDidMount() {
     require('../../scss/Timeline.css');
   }
 
   render() {
     return (
-      <React.Fragment>
+      <div id="journey">
+        <h1 className="timeline-title title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900 text-center">
+          My Journey
+        </h1>
         {timelineData.length > 0 && (
           <div className="timeline-container">
             {timelineData.map((data, idx) => (
@@ -24,8 +27,10 @@ class Timeline extends React.Component {
             ))}
           </div>
         )}
-      </React.Fragment>
+        <h1 className="w-32 mx-auto bg-black text-white rounded text-center">
+          Future
+        </h1>
+      </div>
     );
   }
 }
-export default Timeline;

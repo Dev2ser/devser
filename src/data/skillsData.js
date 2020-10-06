@@ -1,38 +1,50 @@
 export const skillsData = [
   {
-    name: 'HTML',
-    imgURL: '/images/images/skills/html.svg',
+    name: 'HTML5',
+    src: 'html',
   },
   {
-    name: 'CSS',
-    imgURL: '/images/images/skills/css.svg',
+    name: 'CSS3',
+    src: 'css',
   },
   {
     name: 'JavaScript',
-    imgURL: '/images/images/skills/js.svg',
+    src: 'javascript',
   },
   {
-    name: 'CMD',
-    imgURL: '/images/images/skills/cmd.svg',
+    name: 'TypeScript',
+    src: 'typescript',
   },
   {
-    name: 'SVG',
-    imgURL: '/images/images/skills/svg.svg',
-  },
-  {
-    name: 'Designer',
-    imgURL: '/images/images/skills/designer.svg',
+    name: 'React',
+    src: 'react',
   },
   {
     name: 'Python',
-    imgURL: '/images/images/skills/python.svg',
+    src: 'python',
   },
   {
     name: 'NodeJS',
-    imgURL: '/images/images/skills/nodejs.svg',
+    src: 'nodejs',
   },
   {
-    name: 'PHP',
-    imgURL: '/images/images/skills/php.svg',
+    name: 'Terminal',
+    src: 'terminal',
+  },
+  {
+    name: 'SVG',
+    src: 'svg',
+  },
+  {
+    name: 'Designer',
+    src: 'designer',
+  },
+  {
+    name: 'TailwindCSS',
+    src: 'tailwindcss',
+  },
+  {
+    name: 'Bootstrap',
+    src: 'bootstrap',
   },
 ];

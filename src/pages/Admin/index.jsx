@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Dashboard from './libs/Dashboard';
 
-class Admin extends Component {
-  state = {};
+export class Admin extends Component {
   render() {
     return <Dashboard />;
   }
 }
-
-export default Admin;

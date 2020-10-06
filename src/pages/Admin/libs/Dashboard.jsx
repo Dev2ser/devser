@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import fire from '../../../config/base';
-import { Helmet } from 'react-helmet';
+import { DocHeader } from '../../../components';
 import { Switch } from '../../../components';
-import { Logout } from '../../../service/Authentication';
+import { Logout, getUser } from '../../../service/Authentication';
 
 export default function Dashboard() {
-  const user = fire.auth().currentUser;
+  const user = getUser();
 
   useEffect(() => {
     require('bootstrap/dist/css/bootstrap.css');
@@ -14,11 +13,9 @@ export default function Dashboard() {
 
   return (
     <div className="align-items-center parent">
-      <Helmet>
-        <title>Console | Devser</title>
-      </Helmet>
+      <DocHeader>Dashboard</DocHeader>
       <Switch />
-      <h3 className="state">Logged in as {user.displayName}!</h3>
+      <h3 className="state">Logged in as {user.email}!</h3>
       <button
         data-testid="logout-btn"
         className="btn btn-danger logout"

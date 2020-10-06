@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import fire from '../config/base';
+import { auth } from '../config/base';
 import { Route, Switch } from 'react-router-dom';
-import { SigninRoute } from '../routes';
-import { SignupRoute } from '../routes';
-import { ResetpassRoute } from '../routes';
+import { BaseRoute } from '../routes';
+import { SignInRoute } from '../routes';
+import { SignUpRoute } from '../routes';
+import { AccountRoute } from '../routes';
+import { SubjectsRoute } from '../routes';
 // eslint-disable-next-line
-import { PrivateRoute } from '../routes/PrivateRoute';
-
-import NotFound from '../pages/NotFound';
-// import pdfViewer from '../pages/PDFViewer';
-import Portfolio from '../pages/Portfolio';
+import { PrivateRoute } from '../routes';
+import { ResetPassword } from '../components';
+import { NotFound } from '../pages/';
 
 export default class App extends Component {
   constructor() {
@@ -20,7 +20,7 @@ export default class App extends Component {
     };
   }
   authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
         sessionStorage.setItem('user', user.uid);
@@ -41,26 +41,42 @@ export default class App extends Component {
           <Route
             exact
             path={'/'}
+            render={(props) => <BaseRoute {...props} user={this.state.user} />}
+          />
+          <Route
+            exact
+            path={'/auth/login'}
             render={(props) => (
-              <SigninRoute {...props} user={this.state.user} />
+              <SignInRoute {...props} user={this.state.user} />
             )}
           />
           <Route
             exact
-            path={'/signup'}
+            path={'/auth/signup'}
             render={(props) => (
-              <SignupRoute {...props} user={this.state.user} />
+              <SignUpRoute {...props} user={this.state.user} />
             )}
           />
           <Route
             exact
-            path={'/reset-password'}
+            path={'/auth/reset-password'}
+            component={ResetPassword}
+          />
+          {/* <Route exact path={'/auth/verify'} component={VerifyEmail} /> */}
+          <Route
+            exact
+            path={'/myaccount'}
             render={(props) => (
-              <ResetpassRoute {...props} user={this.state.user} />
+              <AccountRoute {...props} user={this.state.user} />
             )}
           />
-          {/* <Route exact path={'/pdf'} component={pdfViewer} /> */}
-          <Route exact path={'/portfolio'} component={Portfolio} />
+          <Route
+            exact
+            path={'/subjects'}
+            render={(props) => (
+              <SubjectsRoute {...props} user={this.state.user} />
+            )}
+          />
           <Route component={NotFound} />
         </Switch>
       </div>

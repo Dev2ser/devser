@@ -11,7 +11,12 @@ import { ErrorBoundary } from './components';
 ReactDOM.render(
   <HttpsRedirect>
     <ErrorBoundary
-      render={() => <p>Oops! an error occurred, Try again later.</p>}
+      render={() => (
+        <div>
+          <p>Oops! an error occurred, Try again later.</p>
+          <button onClick={() => window.location.reload()}>Reload Page</button>
+        </div>
+      )}
     >
       <BrowserRouter>
         <ThemeProvider>

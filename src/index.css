@@ -1,5 +1,5 @@
-@import './utils/fonts.css';
-@import './utils/partials/_variables.css';
+/* @import './utils/fonts.css';
+@import './utils/partials/_variables.css'; */
 
 body {
   margin: 0;
@@ -9,4 +9,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--background);
+  overflow-x: hidden;
 }

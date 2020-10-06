@@ -12,13 +12,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Grow } from '@material-ui/core';
 
-import { Helmet } from 'react-helmet';
+import { DocHeader } from '../../';
 import { Link as Linker } from 'react-router-dom';
+
+// eslint-disable-next-line
+import GoogleIcon from '../../../assets/icons/google.jpg';
 
 // Firebase init
 // eslint-disable-next-line
-import firebase from 'firebase';
-import fire, { analytics } from '../../../config/base';
+import firebase from 'firebase/app';
+// eslint-disable-next-line
+import firebaseui from 'firebaseui';
+import { auth } from '../../../config/base';
 
 function Copyright() {
   return (
@@ -52,14 +57,16 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   loginWithGoogle: {
-    width: '396',
-    margin: theme.spacing(0.1),
-    backgroundColor: '#fff',
+    margin: theme.spacing(0),
+    marginTop: theme.spacing(-0.5),
+    marginBottom: theme.spacing(2),
+    background: '#ecf0f1',
     color: '#000',
+    height: '36px',
   },
 }));
 
-export default function SignIn() {
+export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, isError] = useState(false);
@@ -75,12 +82,10 @@ export default function SignIn() {
 
   const login = (e) => {
     e.preventDefault();
-    fire
-      .auth()
+
+    auth
       .signInWithEmailAndPassword(email, password)
       .then((u) => {
-        const method = u.credential.signInMethod;
-        analytics.logEvent('login', { method });
         console.log('Current User:', u);
         isError(false);
         setErrorMessage('');
@@ -93,31 +98,31 @@ export default function SignIn() {
   };
 
   // const loginWithGoogle = (e) => {
-  // 	e.preventDefault();
-  // 	var provider = new firebase.auth.GoogleAuthProvider();
-  // 	fire.auth().signInWithRedirect(provider);
-  // 	fire
-  // 		.auth()
-  // 		.getRedirectResult()
-  // 		.then(function(result) {
-  // 			if (result.credential) {
-  // 				// This gives you a Google Access Token. You can use it to access the Google API.
-  // 				var token = result.credential.accessToken;
-  // 			}
-  // 			// The signed-in user info.
-  // 			var user = result.user;
-  // 			console.log('provider_token: ' + user);
-  // 		})
-  // 		.catch(function(error) {
-  // 			var errorCode = error.code;
-  // 			var errorMessage = error.message;
-  // 			// The email of the user's account used.
-  // 			var email = error.email;
-  // 			// The firebase.auth.AuthCredential type that was used.
-  // 			var credential = error.credential;
-  // 			isError(true);
-  // 			setErrorMessage(errorMessage);
-  // 		});
+  //   e.preventDefault();
+  //   var provider = new firebase.auth.GoogleAuthProvider();
+  //   auth.signInWithRedirect(provider);
+
+  //   auth
+  //     .getRedirectResult()
+  //     .then(function (result) {
+  //       if (result.credential) {
+  //         // This gives you a Google Access Token. You can use it to access the Google API.
+  //         var token = result.credential.accessToken;
+  //       }
+  //       // The signed-in user info.
+  //       var user = result.user;
+  //       console.log('provider_token: ' + user);
+  //     })
+  //     .catch(function (error) {
+  //       var errorCode = error.code;
+  //       var errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       var email = error.email;
+  //       // The firebase.auth.AuthCredential type that was used.
+  //       var credential = error.credential;
+  //       isError(true);
+  //       setErrorMessage(errorMessage);
+  //     });
   // };
 
   useEffect(() => {
@@ -128,9 +133,7 @@ export default function SignIn() {
   return (
     <Grow in={true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
-        <Helmet>
-          <title>Sign-In | Devser</title>
-        </Helmet>
+        <DocHeader>Sign-In</DocHeader>
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -178,24 +181,27 @@ export default function SignIn() {
               Sign In
             </Button>
             {/* <Button
-							type="submit"
-							fullWidth
-							variant="contained"
-							color="primary"
-							className={classes.loginWithGoogle}
-							onClick={loginWithGoogle}
-						>
-							<img src="/images/static/google.jpg" alt="google_signin_btn" />
-							Sign In With Google
-						</Button> */}
+              type="submit"
+              fullWidth
+              variant="contained"
+              className={classes.loginWithGoogle}
+              onClick={loginWithGoogle}
+            >
+              <img src={GoogleIcon} alt="google_signin_btn" />
+              Sign In With Google
+            </Button> */}
             <Grid container>
               <Grid item xs>
-                <Linker to="/reset-password" variant="body2" className="link">
+                <Linker
+                  to="/auth/reset-password"
+                  variant="body2"
+                  className="link"
+                >
                   Forgot password?
                 </Linker>
               </Grid>
               <Grid item>
-                <Linker to="/signup" variant="body2" className="link">
+                <Linker to="/auth/signup" variant="body2" className="link">
                   {"Don't have an account? Sign Up"}
                 </Linker>
               </Grid>

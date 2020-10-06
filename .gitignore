@@ -23,6 +23,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Should be ignore in my situation
+# Should be ignored in my situation
 /.firebase/
 /.vscode/
+
+# Personal
+instructions.dev

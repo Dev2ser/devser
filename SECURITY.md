@@ -14,5 +14,5 @@
 If you found any vulnerabilities, please send a request to: 
 * devser.co@gmail.com
 
-The report might take a while up to a month to be reviewed 
+The report might take a while up to a week to be reviewed 
 and replied with an accept or decline.

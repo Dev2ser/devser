@@ -1,15 +1,9 @@
-import React from 'react';
+import styled from 'styled-components';
 
-export default function Button({ title, onClick, full = false }) {
-  let classNames =
-    'text-sm font-bold tracking-wider bg-transparent hover:bg-black text-black font-semibold hover:text-white py-4 px-12 border-2 border-black hover:border-transparent';
-
-  if (full) {
-    classNames = `${classNames} w-full`;
-  }
-  return (
-    <button onClick={onClick} className={classNames}>
-      <div>{title}</div>
-    </button>
-  );
-}
+export const Button = styled.button`
+  font-size: 12px;
+  color: #000;
+  background: ${(props) => props.bgcolor};
+  padding: 8px 12px;
+  margin: 5px;
+`;

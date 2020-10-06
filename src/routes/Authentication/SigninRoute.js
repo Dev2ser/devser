@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// Temporary
-import Admin from '../../pages/Admin';
 import { SignIn } from '../../components';
+import { Redirect } from 'react-router-dom';
 
-export default class SigninRoute extends Component {
+export class SignInRoute extends Component {
   // eslint-disable-next-line
   constructor(props) {
     super(props);
@@ -11,7 +10,7 @@ export default class SigninRoute extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.user ? <Admin /> : <SignIn />}
+        {this.props.user ? <Redirect to="/" /> : <SignIn />}
       </React.Fragment>
     );
   }

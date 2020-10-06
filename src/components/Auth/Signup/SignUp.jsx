@@ -12,11 +12,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Grow } from '@material-ui/core';
 
-import { Helmet } from 'react-helmet';
+import { DocHeader } from '../../';
 import { Link as Linker } from 'react-router-dom';
 
 // Firebase init
-import fire, { db } from '../../../config/base';
+import { db, auth } from '../../../config/base';
+import { getUser } from '../../../service/Authentication';
 
 function Copyright() {
   return (
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export function SignUp() {
   const [username, setUsername] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [usernameisError, setUsernameisError] = useState(false);
@@ -176,11 +177,10 @@ export default function SignUp() {
 
     const err = validate();
     if (!err) {
-      fire
-        .auth()
+      auth
         .createUserWithEmailAndPassword(email, password)
         .then((u) => {
-          const user = fire.auth().currentUser;
+          const user = getUser();
           user.sendEmailVerification();
           return db.collection('users').doc(u.user.uid).set({
             username: username,
@@ -226,9 +226,7 @@ export default function SignUp() {
   return (
     <Grow in={true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
-        <Helmet>
-          <title>Sign-Up | Devser</title>
-        </Helmet>
+        <DocHeader>Sign-Up</DocHeader>
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -331,7 +329,7 @@ export default function SignUp() {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Linker to="/" className="link">
+                <Linker to="/auth/login" className="link">
                   {'Already have an account? Sign in'}
                 </Linker>
               </Grid>

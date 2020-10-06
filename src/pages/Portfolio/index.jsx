@@ -1,29 +1,34 @@
 import React from 'react';
+import { DocHeader } from '../../components';
 import Navigation from './views/Navigation';
 import Hero from './views/Hero';
 import About from './views/About';
 import Timeline from './views/Timeline/Timeline';
-// eslint-disable-next-line
 import Skills from './views/Skills';
-import Exp from './views/Exp';
 // eslint-disable-next-line
 import Projects from './views/Projects';
+import Contact from './views/Contact';
+// eslint-disable-next-line
+import FAQ from './views/FAQ';
+import Footer from './views/Footer';
 
-export default class Home extends React.Component {
+export class Portfolio extends React.Component {
   componentDidMount() {
     require('../../utils/tailwind.generated.css');
   }
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <DocHeader></DocHeader>
         <Navigation />
         <Hero />
         <About />
         <Timeline />
         <Skills />
-        <Projects />
-        <Exp />
-      </div>
+        {/* <Projects /> */}
+        <Contact />
+        <Footer />
+      </React.Fragment>
     );
   }
 }

@@ -1,63 +1,50 @@
 export const timelineData = [
   {
-    text: 'Started working on the app-ideas repository',
-    date: 'February 25 2019',
+    text: 'Got into The World of Programming.',
+    date: 'September 21 2018',
     category: {
-      tag: 'app-ideas',
-      color: '#FFDB14',
-    },
-    link: {
-      url: 'https://github.com/florinpop17/app-ideas',
-      text: 'Check it out on GitHub',
-    },
-  },
-  {
-    text: 'Started the Weekly Coding Challenge program',
-    date: 'March 04 2019',
-    category: {
-      tag: 'blog',
+      tag: 'life-changing',
       color: '#e17b77',
     },
-    link: {
-      url: 'https://florin-pop/blog/2019/03/weekly-coding-challenge/',
-      text: 'Check it out here',
+  },
+  {
+    text: 'Started learning about HTML and CSS.',
+    date: 'September 24 2018',
+    category: {
+      tag: 'learning',
+      color: '#1DA1F2',
     },
   },
   {
-    text: 'Got 1.000 followers on Twitter',
-    date: 'March 07 2019',
+    text: 'Left Web Development and Got into Python.',
+    date: 'February 08 2019',
     category: {
-      tag: 'twitter',
+      tag: 'learning',
       color: '#1DA1F2',
     },
     link: {
-      url: 'https://twitter.com/florinpop1705',
-      text: 'See profile',
+      url: 'python.org',
+      text: 'Language website',
     },
   },
   {
-    text: 'I published my first article in the FreeCodeCamp Medium Publication',
-    date: 'March 18 2019',
+    text: 'Returned to Web Development with Excitement.',
+    date: 'August 13 2019',
     category: {
-      tag: 'medium',
-      color: '#018f69',
-    },
-    link: {
-      url:
-        'https://medium.freecodecamp.org/how-to-build-a-double-slider-sign-in-and-sign-up-form-6a5d03612a34',
-      text: 'Check it out here',
+      tag: 'life-changing',
+      color: '#e17b77',
     },
   },
   {
-    text: 'Over 12.000 views in a single day on my Medium posts',
-    date: 'April 05 2019',
+    text: 'Got Deeply into Web Development and Learned a lot in a short time.',
+    date: 'January 19 2020',
     category: {
-      tag: 'medium',
+      tag: 'self-development',
       color: '#018f69',
     },
     link: {
-      url: 'https://medium.com/@popflorin1705',
-      text: 'See profile',
+      url: 'https://github.com/Dev2ser5',
+      text: 'Github profile',
     },
   },
 ];
