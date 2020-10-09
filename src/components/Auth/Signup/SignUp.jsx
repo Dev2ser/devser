@@ -187,7 +187,6 @@ export function SignUp() {
             firstName: fname,
             lastName: lname,
             email: email,
-            password: password,
             created_on: new Date(),
           });
         })

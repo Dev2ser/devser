@@ -52,17 +52,17 @@ export function Subject({ subject }) {
       />
       {isEditing ? (
         <Fragment>
-          <Button onClick={onUpdate} bgcolor="green">
+          <Button onClick={onUpdate} bgcolor="green" color="white">
             Update
           </Button>
-          <Button onClick={onDelete} bgcolor="red">
+          <Button onClick={onDelete} bgcolor="red" color="white">
             Delete
           </Button>
           <Button onClick={onCancel}>Cancel</Button>
         </Fragment>
       ) : (
         <Fragment>
-          <Button onClick={onOpen} bgcolor="blue">
+          <Button onClick={onOpen} bgcolor="blue" color="white">
             Open
           </Button>
           <Button onClick={onEdit}>Edit</Button>

@@ -129,7 +129,7 @@ export function ResetPassword() {
               </Grid>
             </Grid>
             {error && (
-              <p style={{ color: 'red', textAlign: 'center', marginTop: 20 }}>
+              <p style={{ color: 'green', textAlign: 'center', marginTop: 20 }}>
                 {errorMessage}
               </p>
             )}

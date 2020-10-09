@@ -5,6 +5,7 @@ import { db } from '../../config/base';
 import { Subject } from '../../components';
 import { getUser } from '../../service/Authentication';
 import { reloadWindow } from '../../service/WindowHandler';
+import { Button } from '../../components/';
 
 export function Subjects() {
   const [subjects, setSubjects] = useState();
@@ -13,13 +14,13 @@ export function Subjects() {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const user = getUser();
-  const userId = user.uid;
-  const subjectsRef = db.collection('users').doc(userId).collection('subjects');
+  const userId = getUser().uid;
 
   useEffect(() => {
     const fetchData = async () => {
-      const subjectsDocs = await subjectsRef
+      const subjectsRef = db.collection('users').doc(userId);
+      const subjectsData = await subjectsRef
+        .collection('subjects')
         .get()
         .then((subjectDoc) => {
           setSubjects(
@@ -33,9 +34,14 @@ export function Subjects() {
         });
     };
     fetchData();
-  }, [subjectsRef, subjects, setSubjects]);
+  }, [userId]);
 
   const onCreate = () => {
+    const subjectsRef = db
+      .collection('users')
+      .doc(userId)
+      .collection('subjects');
+
     if (newSubjectName !== '' && newSubjectSrc !== '') {
       setError(false);
       setErrorMessage('');
@@ -60,7 +66,10 @@ export function Subjects() {
           value={newSubjectSrc}
           onChange={(e) => setNewSubjectSrc(e.target.value)}
         />
-        <button onClick={onCreate}>Create</button>
+        <Button onClick={onCreate}>Create</Button>
+        <Button onClick={reloadWindow} block>
+          Refresh
+        </Button>
         {error && <h4>{errorMessage}</h4>}
         {subjects &&
           subjects.map((subject) => (
