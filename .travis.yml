@@ -1,10 +1,13 @@
 language: node_js
 node_js:
-  - '12.13.0'
-script:
-  - npm install
-  - npm run build
+  - 'node'
+warnings_are_errors: false
 install:
-  - npm install -g firebase-tools
-after_success:
-  - firebase deploy --project console-devser --token $FIREBASE_TOKEN
+  - npm install
+script:
+  - npm run build
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: 'WeZKeVaG741QCjQrB1Q05MzNCcPZTV2DZqoUN5BA/+3NwYRsDthIHExiJTWF3SEmtEAEQ+xcJbVmiVJ7dIHDI8PC+dB1lKOVSET/u7eouZC49KaWJ9vmxWMXYXxaHB7RgonE8pulLyrowbztuXXK0Z4651eUSnNP6K6jLMOZuGKpXDAgCCC7aBjuE+kx14rb1McU//FqmaG85pWOTUqSVA+tLm0rIK7RCOHWSfpqljcRr5hrEqzlI5vUUKU07fLgNbJ0c8IKCcG/CBnZZ0iuFCjlrKzZLlsXOIzQfUn3A15wbvaH3bx94C5cHmTe1XkcBYKBM6jQH9blnDIEZvWrh2ToErxZrlfAh8SeUXkDnTOAlTXTIWnLwrXDrcNlQwhO8q5u47fBkY7hqKRhPz/HYbYfczE6xqnsmEsLaVM8ahQirjXOPc490IPG+WbL4yd60lqd/O0qqmknHH69V7yC6xeYUHU0FdwC93BEkBywunPouVnbVJHg9M8cAy4h7bHmSHy9REzEEg4V6G8cottC5iAbSHv/ZtpTzhnGhETK5uRc+eOf1mAi4aI0/4m4oKvch12zIId4ESoBf8+aVKbhD565PVzAzctvJYpv5vM3Vs8McgNcCCte/zHZzutoLp6Ilwl9LApzRDiUH2gsr8hjlmDMLXZfhHJqUYhx5YGIFRo='
