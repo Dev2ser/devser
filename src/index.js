@@ -7,6 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from './components';
 import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from './components';
+import LogRocket from 'logrocket';
+LogRocket.init('8jofda/devser');
 
 ReactDOM.render(
   <HttpsRedirect>

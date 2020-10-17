@@ -11,6 +11,9 @@ import { SubjectsRoute } from '../routes';
 import { PrivateRoute } from '../routes';
 import { ResetPassword } from '../components';
 import { NotFound } from '../pages/';
+import LogRocket from 'logrocket';
+
+import { UsersPanel } from '../pages/Users';
 
 export default class App extends Component {
   constructor() {
@@ -24,6 +27,10 @@ export default class App extends Component {
       if (user) {
         this.setState({ user });
         sessionStorage.setItem('user', user.uid);
+        LogRocket.identify(user.uid, {
+          name: user.displayName,
+          email: user.email,
+        });
       } else {
         this.setState({ user: null });
         sessionStorage.removeItem('user');
@@ -77,6 +84,7 @@ export default class App extends Component {
               <SubjectsRoute {...props} user={this.state.user} />
             )}
           />
+          <Route exact path={'/users'} component={UsersPanel} />
           <Route component={NotFound} />
         </Switch>
       </div>

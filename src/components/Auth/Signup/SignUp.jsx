@@ -183,10 +183,12 @@ export function SignUp() {
           const user = getUser();
           user.sendEmailVerification();
           return db.collection('users').doc(u.user.uid).set({
+            uid: user.uid,
             username: username,
             firstName: fname,
             lastName: lname,
             email: email,
+            isVerified: false,
             created_on: new Date(),
           });
         })

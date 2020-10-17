@@ -1,9 +1,6 @@
-export { SignIn } from './Auth';
-export { SignUp } from './Auth';
-export { ResetPassword } from './Auth';
+export { SignIn, SignUp, ResetPassword } from './Auth';
 export { ErrorBoundary } from './Error/ErrorBoundary';
-export { ThemeProvider } from './Theme';
-export { Switch } from './Theme';
+export { ThemeProvider, Switch } from './Theme';
 export { Subject } from './Subject';
 export { Button } from './Button';
 export { DocHeader } from './DocHeader';
