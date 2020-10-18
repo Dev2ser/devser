@@ -1,5 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-src/utils/tailwind.css -linguist-vendored
-src/utils/tailwind.generated.css -linguist-vendored
+*.css linguist-detectable=false
