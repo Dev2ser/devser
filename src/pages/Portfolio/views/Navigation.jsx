@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../../../assets/icons/logo.svg';
+import { NavigationSection } from '../../../data/pageData';
+import { NavItem, ActionItem, Logo } from '../../../components';
 import { db } from '../../../config/base';
-import { Logout } from '../../../service/Authentication';
 import { getUser } from '../../../service/Authentication';
 
 export default class Navigation extends React.Component {
@@ -66,40 +66,13 @@ export default class Navigation extends React.Component {
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img className="h-8 w-8" src={Logo} alt="Devser logo" />
+                  <Logo className="h-8 w-8" />
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline">
-                    <a
-                      href="/#"
-                      className="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 no-underline focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                    >
-                      Home
-                    </a>
-                    <a
-                      href="#about"
-                      className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                    >
-                      About
-                    </a>
-                    <a
-                      href="#journey"
-                      className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                    >
-                      Journey
-                    </a>
-                    <a
-                      href="#skills"
-                      className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                    >
-                      Skills
-                    </a>
-                    <a
-                      href="#faq"
-                      className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                    >
-                      FAQ
-                    </a>
+                    {NavigationSection.list.map((li, index) => {
+                      return <NavItem key={index} obj={li} mobile={false} />;
+                    })}
                   </div>
                 </div>
               </div>
@@ -152,28 +125,16 @@ export default class Navigation extends React.Component {
                           aria-orientation="vertical"
                           aria-labelledby="user-menu"
                         >
-                          <a
-                            href="/profile"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline hover:no-underline"
-                            role="menuitem"
-                          >
-                            Your Profile
-                          </a>
-                          <a
-                            href="/settings"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline hover:no-underline"
-                            role="menuitem"
-                          >
-                            Settings
-                          </a>
-                          <a
-                            href="/auth/login"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline hover:no-underline"
-                            role="menuitem"
-                            onClick={Logout}
-                          >
-                            Sign out
-                          </a>
+                          {NavigationSection.actionMenu.map((action, index) => {
+                            return (
+                              <ActionItem
+                                key={index}
+                                obj={action}
+                                mobile={false}
+                                role="menuitem"
+                              />
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -216,36 +177,9 @@ export default class Navigation extends React.Component {
           {this.state.menu && (
             <div className="md:hidden">
               <div className="px-2 pt-2 pb-3 sm:px-3">
-                <a
-                  href="/#"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 no-underline focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                >
-                  Home
-                </a>
-                <a
-                  href="#about"
-                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                >
-                  About
-                </a>
-                <a
-                  href="#journey"
-                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                >
-                  Journey
-                </a>
-                <a
-                  href="#skills"
-                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                >
-                  Skills
-                </a>
-                <a
-                  href="#faq"
-                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                >
-                  FAQ
-                </a>
+                {NavigationSection.list.map((li, index) => {
+                  return <NavItem key={index} obj={li} mobile={true} />;
+                })}
               </div>
               <div className="pt-4 pb-3 border-t border-gray-700">
                 <div className="flex items-center px-5">
@@ -271,25 +205,11 @@ export default class Navigation extends React.Component {
                   </div>
                 </div>
                 <div className="mt-3 px-2">
-                  <a
-                    href="/profile"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                  >
-                    Your Profile
-                  </a>
-                  <a
-                    href="/settings"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                  >
-                    Settings
-                  </a>
-                  <a
-                    href="/auth/login"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 no-underline hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline"
-                    onClick={Logout}
-                  >
-                    Sign out
-                  </a>
+                  {NavigationSection.actionMenu.map((action, index) => {
+                    return (
+                      <ActionItem key={index} obj={action} mobile={true} />
+                    );
+                  })}
                 </div>
               </div>
             </div>
