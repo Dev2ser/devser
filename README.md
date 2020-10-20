@@ -1,10 +1,45 @@
-![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/RobertJoining/edu_project.svg?branch=master)](https://travis-ci.com/RobertJoining/edu_project) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
+![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/Dev2ser/devser.svg?branch=master)](https://travis-ci.com/Dev2ser/devser) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Devser
 
-## Available Scripts
+This project was made just to put my spare time in, In a nutshell, I make any idea comes to my mind.<br />
+You can name it a portfolio if you want.
+
+This project was bootstrapped with [Create React App!](https://github.com/facebook/create-react-app).
+
+# Table of Contents
+
+- [About the Author](#about)
+- [Installation](#installation)
+- [Available Scripts](#scripts)
+- [Contributing](#contributing)
+- [License](#license)
+
+
+# About the Author
+
+Hello 👋, My name is Yasser a High school student with high ambitions.<br />
+hoping to get a scholarship to a top university.
+
+
+# Installation
+
+You can install the project via cloning it with HTTPS:
+`git clone https://github.com/Dev2ser/devser.git`
+
+or with SSH:
+`git clone git@github.com:Dev2ser/devser.git`
+
+or by downloading the source code!
+
+
+# Available Scripts
 
 In the project directory, you can run:
+
+### `npm run git:python`
+
+Runs the python program located in the python folder.
 
 ### `npm start`
 
@@ -13,6 +48,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### `npm run storybook`
+
+Runs the storybook app.<br />
+Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
 
 ### `npm test`
 
@@ -27,7 +67,22 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run build:tailwind`
+
+Builds the tailwind source code.<br />
+Don't use it manually, Others scripts use it automatically.
+
+### `npm run build:storybook`
+
+Builds all .stories.js files.
+
+### `npm run deploy:github`
+
+Deploys all files in /docs to https://dev2ser.github.io/devser
+
+### `npm run deploy:firebase`
+
+Deploys the build folder to firebase (https://console-devser.firebaseapp.com)
 
 ### `npm run eject`
 
@@ -39,32 +94,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you want to contribute simply install the source code, and simply do anything with it that you think is better and create a pull request.<br />
+it will be reviewed, if it's helpful in any way it will be merged.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# License
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project uses [MIT's license](https://opensource.org/licenses/MIT).
