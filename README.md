@@ -9,9 +9,9 @@ This project was bootstrapped with [Create React App!](https://github.com/facebo
 
 # Table of Contents
 
-- [About the Author](#about)
+- [About the Author](#about-the-author)
 - [Installation](#installation)
-- [Available Scripts](#scripts)
+- [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -24,10 +24,10 @@ hoping to get a scholarship to a top university.
 
 # Installation
 
-You can install the project via cloning it with HTTPS:
+You can install the project via cloning it with HTTPS:<br />
 `git clone https://github.com/Dev2ser/devser.git`
 
-or with SSH:
+or with SSH:<br />
 `git clone git@github.com:Dev2ser/devser.git`
 
 or by downloading the source code!
