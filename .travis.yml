@@ -6,9 +6,5 @@ install:
   - npm install
 script:
   - npm run build
-deploy:
-  provider: firebase
-  skip_cleanup: true
-  token: $secure
-env:
-  secure: j0Wd3X08skDorrTRIOvgJQ1ICPRslO+OKlo+/cDU2CN8Z08OEhVxGrugnpKtXm69LcPsBHkvOrTeuBY0y9BMNZ4iL+NiGRELnZKnvmOhu22lrZ9UQgpz8262lgvhopJY9B30b85yk9Xvg2bvhvmmQFCPLCHaLg1fH1rpmULKRzT0nM4K0OScSx9K0btRJMqZngS7Hoc9rkh4bdaT6I2YqbdZOyyOzQaGJ3bXYV4h4C9iaklzHZuamy70XEkxCbo00vpZtX17hdJd6mXV+kMcl0Q2/iSwDVcl6823kGgasoH5N1bAiSZNPc2LM3VDUitG8RDjwrt2Lr4se680yizMUwiFn5mIsxUDq6ampHHeZkerEJ8JNRu+c38JCQQ+PON2d/gGQp06oeK/3IUnVq7rVWHJtNtqLiFAL03YKxlJ5R7qaNGwFAzO9g7EasBxGl3kvnIX+BN9kft8gtKK3RdpdM7Hgk9EbQVOOX8Vk/mPvkxDYvXWZZlHoguWCK1DRSdEwtnoT2F4+64OnQrSFk4Bqu9XszejYsuVqELItoBFeJlK9VdH1zv/Y1uqQ8vryMN1IId6us7vv2ddFstSJ1D5qC6GgolntiYxkGlif8Vwd+K2+3ekUQ9tP2zVu5PWNKrAmaNGO3eILWcQmNu9OIcsfGoWrGzPl/+qZoBJ7I9zqVA=
+after_success:
+  - npm run test
