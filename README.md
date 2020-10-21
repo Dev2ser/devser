@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/Dev2ser/devser.svg?branch=master)](https://travis-ci.com/Dev2ser/devser) [![Dev2ser](https://circleci.com/gh/dev2ser/devser.svg?style=svg)](https://circleci.com/gh/dev2ser/devser) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
+![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/Dev2ser/devser.svg?branch=master)](https://travis-ci.com/Dev2ser/devser) ![CircleCI](https://img.shields.io/circleci/build/github/Dev2ser/devser?label=circleci) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
 
 # Devser
 
