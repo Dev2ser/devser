@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/Dev2ser/devser.svg?branch=master)](https://travis-ci.com/Dev2ser/devser) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
+![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/Dev2ser/devser.svg?branch=master)](https://travis-ci.com/Dev2ser/devser) [![Dev2ser](https://circleci.com/gh/dev2ser/devser.svg?style=svg)](https://circleci.com/gh/dev2ser/devser) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
 
 # Devser
 
@@ -15,12 +15,10 @@ This project was bootstrapped with [Create React App!](https://github.com/facebo
 - [Contributing](#contributing)
 - [License](#license)
 
-
 # About the Author
 
 Hello 👋, My name is Yasser a High school student with high ambitions.<br />
 hoping to get a scholarship to a top university.
-
 
 # Installation
 
@@ -31,7 +29,6 @@ or with SSH:<br />
 `git clone git@github.com:Dev2ser/devser.git`
 
 or by downloading the source code!
-
 
 # Available Scripts
 
@@ -94,12 +91,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-
 # Contributing
 
 If you want to contribute simply install the source code, and do anything with it that you think is better, and create a pull request.<br />
 it will be reviewed, if it's helpful in any way it will be merged.
-
 
 # License
 
