@@ -1,27 +1,21 @@
 # Changelog
 
-- * e90e619 - 2020-06-22: Recovered App test file 
-- * 8d8ea89 - 2020-06-22: deleted App.test.js 
-- * c523f60 - 2020-06-22: test files fixes 
-- * 775c78b - 2020-06-22: fixing .travis.yml 
-- * c976530 - 2020-06-21: firebase deployment using travis 
-- * 054a81f - 2020-06-21: Release v0.1.8 
-- * fae0e01 - 2020-06-21: Release v0.1.7 
-- * 27e9ef9 - 2020-06-21: Release v0.1.6 
-- * fdc2a77 - 2020-06-21: Release v0.1.5 
-- * bef5874 - 2020-06-21: Release v0.1.4 
-- * ace45cc - 2020-06-21: Release v0.1.3 
-- * 229a98f - 2020-06-21: Release v0.1.2 
-- * 536f4b5 - 2020-06-21: Release v0.1.1 
-- * 8df314f - 2020-06-21: changes to gruntfile 
-- * c8b4be9 - 2020-06-21: automation 
-- * 7ddeaaa - 2020-06-20: Release vundefined 
-- * 675e794 - 2020-06-20: Delete LICENSE 
-- * 85bc21c - 2020-06-20: Create LICENSE 
-- * b84c276 - 2020-06-19: added .travis.yml 
-- * a7969e6 - 2020-06-19: fixes 
-- * 0586f8f - 2020-06-19: fixes 
-- * 3295f60 - 2020-06-19: initial docs 
-- * 5ae9906 - 2020-06-18: Automation 
-- * cdc79a3 - 2020-06-18: Create SECURITY.md 
+- * 4edc208 - 2020-10-21: Create codeql-analysis.yml 
+- * 710f0dc - 2020-10-21: + Added pageData.js Where All Data and Options About The Root Route Will Be Stored. (WIP) This Will Make Changing Anything in the Page Easier. + Logo.js Just The Project&#x27;s Logo. + NavElements.js All Nav Components Will Be There. + Changes To Hero.jsx and Navigation.jsx (Testing pageData.js). 
+- * 50b5672 - 2020-10-20: Update README.md 
+- * cb9fcec - 2020-10-20: Update README.md 
+- * e38495b - 2020-10-20: vendored CSS and Html files. 
+- * cf152c3 - 2020-10-18: Tests to .gitattributes 
+- * 4670363 - 2020-10-18: Set theme jekyll-theme-cayman 
+- * 0df32e4 - 2020-10-18: Disabling Language Statistics For All HTML Files. 
+- * fec31ba - 2020-10-18: Disabling Language Statistics For All CSS Files. 
+- * 7da42fe - 2020-10-18: Fixing .gitattributes 
+- * 23df208 - 2020-10-18: Fixing Github language statistics. 
+- * 9687e9f - 2020-10-17: + LogRocket Integration. + Added Users Panel Page (For Myself RN). + Added Helper.js file. - Updated some Dependencies. - Changes to Firestore Rules to Work with the new Users Panel. - It now Saves the user&#x27;s id and Other Information with the Related user&#x27;s Document. - Other Minor Changes. 
+- * 153d2b7 - 2020-10-17: fixes 
+- * d7c2a26 - 2020-10-17: fixes 
+- * 74cf398 - 2020-10-17: fixing travis 
+- * c518cdf - 2020-10-16: testing travis 
+- * 025e60d - 2020-10-16: fixed travis builds 
+- * b2b11cf - 2020-10-09: - fixed a bug where subjects page requests a ton of database objects in a short time period. - minor changes 
 
