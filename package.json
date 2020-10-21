@@ -62,7 +62,7 @@
     "deploy:github": "gh-pages -d build",
     "predeploy:firebase": "npm run build",
     "deploy:firebase": "firebase deploy",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public"
   },
