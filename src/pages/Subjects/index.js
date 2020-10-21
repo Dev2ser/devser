@@ -19,12 +19,16 @@ export function Subjects() {
   useEffect(() => {
     const fetchData = async () => {
       const subjectsRef = db.collection('users').doc(userId);
+      // eslint-disable-next-line
       const subjectsData = await subjectsRef
         .collection('subjects')
         .get()
         .then((subjectDoc) => {
           setSubjects(
-            subjectDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+            subjectDoc.docs.map((doc) => ({
+              ...doc.data(),
+              id: doc.id,
+            }))
           );
         })
         .catch((err) => {

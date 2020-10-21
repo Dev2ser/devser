@@ -10,6 +10,7 @@ export function UsersPanel() {
     require('../../utils/tailwind.generated.css');
     const fetchData = async () => {
       const usersRef = db.collection('users');
+      // eslint-disable-next-line
       const usersData = await usersRef
         .get()
         .then((userDoc) => {
