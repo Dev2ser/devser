@@ -1,11 +1,11 @@
 // @import './_variables';
 
-// a {
-//   text-decoration: none;
-//   &:hover {
-//     text-decoration: underline;
-//   }
-//   &:visited {
-//     color: var(--visitedURL);
-//   }
-// }
+a {
+  transition: none;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  &:hover {
+    color: rgb(0, 0, 238);
+    text-decoration: underline;
+  }
+}
