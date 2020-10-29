@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../config/base';
 import { capitalizeFirstLetter } from '../../service/Helpers';
 
-export function UsersPanel() {
+export function Users() {
   const [usersData, setUsersData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
