@@ -1,5 +1,3 @@
-<h1 align="center">Devser</h1>
-
 <p align="center">
   <img src="src/assets/images/devser.png" alt="devser logo" width="120px" height="120px"/>
   <br>
