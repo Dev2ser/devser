@@ -1,11 +1,39 @@
-![GitHub](https://img.shields.io/github/license/Dev2ser/devser) [![Build Status](https://travis-ci.com/Dev2ser/devser.svg?branch=master)](https://travis-ci.com/Dev2ser/devser) ![CircleCI](https://img.shields.io/circleci/build/github/Dev2ser/devser?label=circleci) ![CodeQL](https://github.com/Dev2ser/devser/workflows/CodeQL/badge.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Dev2ser/devser)
+<h1 align="center">Devser</h1>
 
-# Devser
+<p align="center">
+  <img src="src/assets/images/devser.png" alt="devser logo" width="120px" height="120px"/>
+  <br>
+  <i>This project was made just to put my spare time in, In a nutshell, I make any idea comes to my mind.<br />
+    <br> You can name it a portfolio if you want.</i>
+  <br>
+</p>
 
-This project was made just to put my spare time in, In a nutshell, I make any idea comes to my mind.<br />
-You can name it a portfolio if you want.
+<p align="center">
+  <a href="https://console-devser.firebaseapp.com"><strong>Website</strong></a>
+  <br>
+</p>
 
-This project was bootstrapped with [Create React App!](https://github.com/facebook/create-react-app).
+<p align="center">
+  This project was bootstrapped with [Create React App!](https://github.com/facebook/create-react-app).
+  <br>
+</p>
+
+<p align="center">
+  <a href="https://img.shields.io/github/license/Dev2ser/devser">
+    <img src="https://img.shields.io/github/license/Dev2ser/devser" alt="Github" />
+  </a>&nbsp;
+  <a href="https://travis-ci.com/Dev2ser/devser">
+    <img src="https://travis-ci.com/Dev2ser/devser.svg?branch=master" alt="TravisCI Build Status" />
+  </a>&nbsp;
+  <a href="https://app.circleci.com/pipelines/github/Dev2ser/devser">
+    <img src="https://img.shields.io/circleci/build/github/Dev2ser/devser?label=circleci" alt="CircleCI" />
+  </a>&nbsp;
+  <a href="https://github.com/Dev2ser/devser/actions?query=workflow%3ACodeQL">
+    <img src="https://github.com/Dev2ser/devser/workflows/CodeQL/badge.svg" alt="CodeQL" />
+  </a>
+</p>
+
+<hr>
 
 # Table of Contents
 
