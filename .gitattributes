@@ -3,6 +3,6 @@
 
 # *.css linguist-vendored=true
 # *.html linguist-vendored=true
-*.* linguist-language=javascript
+*.* linguist-language=JavaScript
 # *.css linguist-detectable=false
 # *.html linguist-detectable=false
