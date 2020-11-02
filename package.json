@@ -95,7 +95,7 @@
     "grunt-bump": "^0.8.0",
     "grunt-changelog": "^0.3.2",
     "prettier": "2.0.5",
-    "webpack": "^4.42.0"
+    "webpack": "^4.44.2"
   },
   "license": "MIT"
 }
