@@ -28,6 +28,9 @@
   </a>&nbsp;
   <a href="https://github.com/Dev2ser/devser/actions?query=workflow%3ACodeQL">
     <img src="https://github.com/Dev2ser/devser/workflows/CodeQL/badge.svg" alt="CodeQL" />
+  </a>&nbsp;
+  <a href="https://gitlocalize.com/repo/5485/whole_project?utm_source=badge">
+    <img src="https://gitlocalize.com/repo/5485/whole_project/badge.svg" alt="gitlocalized" />
   </a>
 </p>
 
