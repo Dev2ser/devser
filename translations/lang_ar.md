@@ -1,4 +1,4 @@
-<p align="center">   <img src="src/assets/images/devser.png" alt="devser logo" width="120px" height="120px">   <br>   <i>This project was made just to put my spare time in, In a nutshell, I make any idea comes to my mind.<br>     <br> You can name it a portfolio if you want.</i>   <br> </p>
+<p align="center">تم إنشاء هذا المشروع فقط لأضع وقت فراغي فيه ، باختصار ، أضع أي فكرة تتبادر إلى ذهني. يمكنك تسميتها محفظة إذا كنت تريد.</p>
 
 <p align="center">
   <a href="https://console-devser.firebaseapp.com"><strong>موقع الكتروني</strong></a>
