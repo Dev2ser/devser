@@ -90,7 +90,7 @@
     "@types/jest": "^25.1.4",
     "cross-env": "^5.2.1",
     "firebase-tools": "^8.13.1",
-    "gh-pages": "^3.0.0",
+    "gh-pages": "^3.1.0",
     "grunt": "^1.1.0",
     "grunt-bump": "^0.8.0",
     "grunt-changelog": "^0.3.2",
