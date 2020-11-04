@@ -123,7 +123,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 # Contributing
 
 If you want to contribute simply install the source code, and do anything with it that you think is better, and create a pull request.<br />
-it will be reviewed, if it's helpful in any way it will be merged.
+It will be reviewed, if it's helpful in any way it will be merged.
 
 Also, please read the [CONTRIBUTING](https://github.com/Dev2ser/devser/blob/master/CONTRIBUTING.md) Guide.
 
