@@ -1,15 +1,9 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
-workflows:
-  node-tests:
-    jobs:
-      - node/test
+
 jobs:
-  build:
+  prepare_dependencies_and_cache:
     docker:
       - image: circleci/node:10.16.0
-    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -18,17 +12,53 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install Dependencies
-          command: npm install
+          command: npm ci
       - save_cache:
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: Test
-          command: npm run test
+  build:
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
       - run:
           name: Build
           command: npm run build
+  test:
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
       - run:
-          name: Firebase Deploy
-          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+        name: Test
+        command: npm test
+  deploy:
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
+      - run:
+        name: Firebase Deploy
+        command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+workflows:
+  build_and_test:
+    jobs:
+      - prepare_dependencies_and_cache
+      - build:
+        requires:
+          - prepare_dependencies_and_cache
+      - test:
+        requires:
+          - prepare_dependencies_and_cache
+          - build
+  deploy:
+    jobs:
+      - hold:
+        type: approval
+        requires:
+          - build
+          - test
+      - deploy:
+        requires:
+          - hold
