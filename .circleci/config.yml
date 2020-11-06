@@ -1,9 +1,15 @@
 version: 2
+references:
+  workspace_root: &workspace_root /tmp/workspace
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
 jobs:
   prepare_dependencies_and_cache:
     docker:
       - image: circleci/node:10.16.0
     steps:
+      - *attach_workspace
       - checkout
       - restore_cache:
           keys:
@@ -16,10 +22,15 @@ jobs:
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+      - persist_to_workspace: # store the built files into the workspace for other jobs.
+          root: *workspace_root
+          paths:
+            - modules
   build:
     docker:
       - image: circleci/node:10.16.0
     steps:
+      - *attach_workspace
       - checkout
       - run:
           name: Build
@@ -28,6 +39,7 @@ jobs:
     docker:
       - image: circleci/node:10.16.0
     steps:
+      - *attach_workspace
       - checkout
       - run:
           name: Test
@@ -36,6 +48,7 @@ jobs:
     docker:
       - image: circleci/node:10.16.0
     steps:
+      - *attach_workspace
       - checkout
       - run:
           name: Firebase Deploy
