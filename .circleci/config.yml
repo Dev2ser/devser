@@ -39,6 +39,9 @@ jobs:
       - checkout
       - *attach_workspace
       - run:
+          name: Create node_modules folder
+          command: mkdir /node_modules
+      - run:
           name: Restore Previous Job Assets (node_modules) to devser directory.
           command: |
             set -exu
