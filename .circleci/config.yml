@@ -29,7 +29,7 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/modules
-            mv lib/node_modules/* /tmp/workspace/modules/
+            mv ./lib/node_modules/* /tmp/workspace/modules/
       - persist_to_workspace: # store the built files into the workspace for other jobs.
           root: *workspace_root
           paths:
@@ -46,7 +46,7 @@ jobs:
             set -exu
             mkdir -p /tmp/workspace/modules
             mkdir -p /lib/node_modules
-            mv /tmp/workspace/modules/* lib/
+            mv /tmp/workspace/modules/* ./lib/node_modules/
       - run:
           name: Set a New NODE_PATH
           command: node ./scripts/setNodePath.js
@@ -65,7 +65,7 @@ jobs:
             set -exu
             mkdir -p /tmp/workspace/modules
             mkdir -p /lib/node_modules
-            mv /tmp/workspace/modules/* lib/
+            mv /tmp/workspace/modules/* ./lib/node_modules/
       - run:
           name: Set a New NODE_PATH
           command: node ./scripts/setNodePath.js
