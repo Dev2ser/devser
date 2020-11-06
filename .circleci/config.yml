@@ -46,19 +46,19 @@ workflows:
     jobs:
       - prepare_dependencies_and_cache
       - build:
-        requires:
-          - prepare_dependencies_and_cache
+          requires:
+            - prepare_dependencies_and_cache
       - test:
-        requires:
-          - prepare_dependencies_and_cache
-          - build
+          requires:
+            - prepare_dependencies_and_cache
+            - build
   deploy:
     jobs:
       - hold:
-        type: approval
-        requires:
-          - build
-          - test
+          type: approval
+          requires:
+            - build
+            - test
       - deploy:
-        requires:
-          - hold
+          requires:
+            - hold
