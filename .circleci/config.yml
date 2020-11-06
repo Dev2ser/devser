@@ -40,7 +40,7 @@ jobs:
       - *attach_workspace
       - run:
           name: Change ownership
-          command: chown -R $USER:$USER /node_modules
+          command: chown -R $USER:$USER /
       - run:
           name: Create node_modules folder
           command: mkdir /node_modules
