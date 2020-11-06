@@ -39,8 +39,8 @@ jobs:
       - checkout
       - *attach_workspace
       - run:
-          name: Change ownership
-          command: chown -R $USER:$USER /
+          name: Change Permissions
+          command: chmod a+w /
       - run:
           name: Create node_modules folder
           command: mkdir /node_modules
@@ -49,6 +49,7 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/modules
+            mkdir node_modules
             mv /tmp/workspace/modules/* node_modules/
       - run:
           name: Build
