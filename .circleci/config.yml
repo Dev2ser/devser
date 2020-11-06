@@ -52,8 +52,6 @@ workflows:
           requires:
             - prepare_dependencies_and_cache
             - build
-  deploy:
-    jobs:
       - hold:
           type: approval
           requires:
