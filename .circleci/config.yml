@@ -1,56 +1,51 @@
 version: 2
-references:
-  workspace_root: &workspace_root /tmp/workspace
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: *workspace_root
+# references:
+#   workspace_root: &workspace_root /tmp/workspace
+#   attach_workspace: &attach_workspace
+#     attach_workspace:
+#       at: *workspace_root
 jobs:
   prepare_dependencies_and_cache:
     docker:
       - image: circleci/node:10.16.0
     steps:
-      - *attach_workspace
+      # - *attach_workspace
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - run:
           name: Install Dependencies
           command: npm ci
       - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          key: node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: 'Persist node_modules' # Move node_modules into our workspace.
-          command: |
-            set -exu
-            mkdir -p /tmp/workspace/modules
-            mv node_modules/* /tmp/workspace/modules/
-      - persist_to_workspace: # store the built files into the workspace for other jobs.
-          root: *workspace_root
-          paths:
-            - modules
+      # - run:
+      #     name: 'Persist node_modules' # Move node_modules into our workspace.
+      #     command: |
+      #       set -exu
+      #       mkdir -p /tmp/workspace/modules
+      #       mv node_modules/* /tmp/workspace/modules/
+      # - persist_to_workspace: # store the built files into the workspace for other jobs.
+      #     root: *workspace_root
+      #     paths:
+      #       - modules
   build:
     docker:
       - image: circleci/node:10.16.0
     steps:
       - checkout
-      - *attach_workspace
-      - run:
-          name: Change Permissions
-          command: chmod a+w /
-      - run:
-          name: Create node_modules folder
-          command: mkdir /node_modules
-      - run:
-          name: Restore Previous Job Assets (node_modules) to devser directory.
-          command: |
-            set -exu
-            mkdir -p /tmp/workspace/modules
-            mkdir node_modules
-            mv /tmp/workspace/modules/* node_modules/
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      # - *attach_workspace
+      # - run:
+      #     name: Restore Previous Job Assets (node_modules) to devser directory.
+      #     command: |
+      #       set -exu
+      #       mkdir -p /tmp/workspace/modules
+      #       mv /tmp/workspace/modules/* node_modules/
       - run:
           name: Build
           command: npm run build
@@ -58,7 +53,7 @@ jobs:
     docker:
       - image: circleci/node:10.16.0
     steps:
-      - *attach_workspace
+      # - *attach_workspace
       - checkout
       - run:
           name: Test
@@ -67,7 +62,7 @@ jobs:
     docker:
       - image: circleci/node:10.16.0
     steps:
-      - *attach_workspace
+      # - *attach_workspace
       - checkout
       - run:
           name: Firebase Deploy
