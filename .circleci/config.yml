@@ -55,6 +55,9 @@ jobs:
     steps:
       # - *attach_workspace
       - checkout
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - run:
           name: Test
           command: npm test
@@ -78,7 +81,6 @@ workflows:
       - test:
           requires:
             - prepare_dependencies_and_cache
-            - build
       - hold:
           type: approval
           requires:
