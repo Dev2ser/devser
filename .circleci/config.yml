@@ -37,6 +37,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.16.0
+    working_directory: ~/data
     steps:
       - checkout
       - restore_cache:
@@ -59,6 +60,10 @@ jobs:
       - run:
           name: Build
           command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - vendor/bundle
   test:
     docker:
       - image: circleci/node:10.16.0
@@ -86,6 +91,8 @@ jobs:
       - image: circleci/node:10.16.0
     steps:
       - checkout
+      - attach_workspace:
+          at: ~/data/vendor/bundle
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
