@@ -35,7 +35,7 @@ jobs:
       #     paths:
       #       - modules
   build:
-    working_directory: ~/devser-project
+    working_directory: ~/project
     docker:
       - image: circleci/node:10.16.0
     steps:
@@ -44,7 +44,7 @@ jobs:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - attach_workspace:
-          at: ~/devser-project
+          at: ~/project
       # - *attach_workspace
       # - run:
       #     name: Set a New NODE_PATH
@@ -67,7 +67,7 @@ jobs:
       #     paths:
       #       - ./build
       - persist_to_workspace:
-          root: ~/devser-project
+          root: ~/project
           paths: ./build
   test:
     docker:
