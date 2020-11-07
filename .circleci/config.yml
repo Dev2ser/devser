@@ -35,6 +35,7 @@ jobs:
       #     paths:
       #       - modules
   build:
+    working_directory: ~/devser-project
     docker:
       - image: circleci/node:10.16.0
     steps:
@@ -42,6 +43,8 @@ jobs:
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - attach_workspace:
+          at: ~/devser-project
       # - *attach_workspace
       # - run:
       #     name: Set a New NODE_PATH
@@ -59,10 +62,13 @@ jobs:
       - run:
           name: Build
           command: npm run build
-      - save_cache:
-          key: build-{{ checksum "firebase.json" }}
-          paths:
-            - ./build
+      # - save_cache:
+      #     key: build-{{ checksum "firebase.json" }}
+      #     paths:
+      #       - ./build
+      - persist_to_workspace:
+          root: ~/devser-project
+          paths: ./build
   test:
     docker:
       - image: circleci/node:10.16.0
@@ -86,17 +92,20 @@ jobs:
           name: Test
           command: npm test
   deploy:
+    working_directory: ~/devser-project
     docker:
       - image: circleci/node:10.16.0
     steps:
       - checkout
       # - *attach_workspace
+      - attach_workspace:
+          at: ~/devser-project
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - restore_cache:
-          keys:
-            - build-{{ checksum "firebase.json" }}
+      # - restore_cache:
+      #     keys:
+      #       - build-{{ checksum "firebase.json" }}
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
