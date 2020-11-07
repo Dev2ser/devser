@@ -74,7 +74,7 @@ jobs:
       #     command: node ./scripts/setNodePath.js
       - run:
           name: Set a New NODE_PATH
-          command: set NODE_PATH=./lib/node_modules
+          command: set NODE_PATH=~/project/lib/node_modules
       - run:
           name: Test
           command: npm test
