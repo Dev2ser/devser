@@ -16,9 +16,9 @@ jobs:
       # - run:
       #     name: Set a New NODE_PATH
       #     command: node ./scripts/setNodePath.js
-      - run:
-          name: Set a New NODE_PATH
-          command: export NODE_PATH=~/project/lib/node_modules
+      # - run:
+      #     name: Set a New NODE_PATH
+      #     command: export NODE_PATH=~/project/lib/node_modules
       - run:
           name: Install Dependencies
           command: npm ci
@@ -84,13 +84,13 @@ jobs:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - *attach_workspace
-      - run:
-          name: Restore Previous Job Assets (node_modules) to devser directory.
-          command: |
-            set -exu
-            mkdir -p /tmp/workspace/modules
-            mkdir -p ~/project/node_modules
-            mv /tmp/workspace/modules/* ~/project/node_modules/
+      # - run:
+      #     name: Restore Previous Job Assets (node_modules) to devser directory.
+      #     command: |
+      #       set -exu
+      #       mkdir -p /tmp/workspace/modules
+      #       mkdir -p ~/project/node_modules
+      #       mv /tmp/workspace/modules/* ~/project/node_modules/
       # - run:
       #     name: Set a New NODE_PATH
       #     command: node ./scripts/setNodePath.js
