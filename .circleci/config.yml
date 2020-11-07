@@ -13,12 +13,6 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      # - run:
-      #     name: Set a New NODE_PATH
-      #     command: node ./scripts/setNodePath.js
-      # - run:
-      #     name: Set a New NODE_PATH
-      #     command: export NODE_PATH=~/project/lib/node_modules
       - run:
           name: Install Dependencies
           command: npm ci
@@ -26,16 +20,6 @@ jobs:
           key: node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      # - run:
-      #     name: 'Move node_modules' # Move node_modules into our workspace.
-      #     command: |
-      #       set -exu
-      #       mkdir -p /tmp/workspace/modules
-      #       mv ~/project/node_modules/* /tmp/workspace/modules
-      # - persist_to_workspace: # store the built files into the workspace for other jobs.
-      #     root: *workspace_root
-      #     paths:
-      #       - modules
   build:
     docker:
       - image: circleci/node:10.16.0
@@ -45,28 +29,11 @@ jobs:
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      # - run:
-      #     name: Set a New NODE_PATH
-      #     command: node ./scripts/setNodePath.js
-      # - run:
-      #     name: Set a New NODE_PATH
-      #     command: export NODE_PATH=~/project/lib/node_modules
-      # - run:
-      #     name: Restore Previous Job Assets (node_modules) to devser directory.
-      #     command: |
-      #       set -exu
-      #       mkdir -p /tmp/workspace/modules
-      #       mkdir -p ~/project/lib/node_modules
-      #       mv /tmp/workspace/modules/* ~/project/lib/node_modules/
       - run:
           name: Build
           command: npm run build
-      # - save_cache:
-      #     key: build-{{ checksum "firebase.json" }}
-      #     paths:
-      #       - ./build
       - run:
-          name: 'Move Build' # Move node_modules into our workspace.
+          name: 'Move build to workspace' # Move build into our workspace.
           command: |
             set -exu
             mkdir -p /tmp/workspace/build
@@ -80,22 +47,12 @@ jobs:
       - image: circleci/node:10.16.0
     steps:
       - checkout
+      - *attach_workspace
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - *attach_workspace
-      # - run:
-      #     name: Restore Previous Job Assets (node_modules) to devser directory.
-      #     command: |
-      #       set -exu
-      #       mkdir -p /tmp/workspace/modules
-      #       mkdir -p ~/project/node_modules
-      #       mv /tmp/workspace/modules/* ~/project/node_modules/
-      # - run:
-      #     name: Set a New NODE_PATH
-      #     command: node ./scripts/setNodePath.js
       - run:
-          name: Test
+          name: Run Tests
           command: npm test
   deploy:
     docker:
@@ -107,7 +64,7 @@ jobs:
           keys:
             - node-v1-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - run:
-          name: Restore Previous Job Assets to devser directory.
+          name: Restore Previous Job Assets (build) to the Root Directory.
           command: |
             set -exu
             mkdir -p /tmp/workspace/build
