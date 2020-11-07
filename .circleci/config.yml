@@ -67,14 +67,14 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/modules
-            mkdir -p ~/project/lib/node_modules
-            mv /tmp/workspace/modules/* ~/project/lib/node_modules/
+            mkdir -p ~/project/node_modules
+            mv /tmp/workspace/modules/* ~/project/node_modules/
       # - run:
       #     name: Set a New NODE_PATH
       #     command: node ./scripts/setNodePath.js
-      - run:
-          name: Set a New NODE_PATH
-          command: NODE_PATH=~/project/lib/node_modules/
+      # - run:
+      #     name: Set a New NODE_PATH
+      #     command: NODE_PATH=~/project/lib/node_modules/
       - run:
           name: Test
           command: npm test
