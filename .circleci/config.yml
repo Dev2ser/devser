@@ -40,9 +40,12 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
+      # - run:
+      #     name: Set a New NODE_PATH
+      #     command: node ./scripts/setNodePath.js
       - run:
           name: Set a New NODE_PATH
-          command: node ./scripts/setNodePath.js
+          command: set NODE_PATH=./lib/node_modules
       - run:
           name: Restore Previous Job Assets (node_modules) to devser directory.
           command: |
@@ -66,9 +69,12 @@ jobs:
             mkdir -p /tmp/workspace/modules
             mkdir -p ~/project/lib/node_modules
             mv /tmp/workspace/modules/* ~/project/lib/node_modules/
+      # - run:
+      #     name: Set a New NODE_PATH
+      #     command: node ./scripts/setNodePath.js
       - run:
           name: Set a New NODE_PATH
-          command: node ./scripts/setNodePath.js
+          command: set NODE_PATH=./lib/node_modules
       - run:
           name: Test
           command: npm test
