@@ -67,7 +67,7 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/modules
-            mkdir -p ~/project/node_modules
+            mkdir -p ~/project/node_modules/
             mv /tmp/workspace/modules/* ~/project/node_modules/
       # - run:
       #     name: Set a New NODE_PATH
@@ -77,7 +77,7 @@ jobs:
       #     command: NODE_PATH=~/project/lib/node_modules/
       - run:
           name: Test
-          command: npm test
+          command: npm run --prefix ~/project/ test
   deploy:
     docker:
       - image: circleci/node:10.16.0
