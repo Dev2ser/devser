@@ -91,8 +91,8 @@ jobs:
     executor: python_executor
     steps:
       - checkout
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      # - run: sudo chown -R circleci:circleci /usr/local/bin
+      # - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run:
           name: Navigate To The python Folder
           command: cd python
@@ -112,8 +112,8 @@ jobs:
     executor: python_executor
     steps:
       - checkout
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      # - run: sudo chown -R circleci:circleci /usr/local/bin
+      # - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run:
           command: cd python
       - restore_cache:
