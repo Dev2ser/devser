@@ -98,13 +98,16 @@ jobs:
           command: cd python
       # - python/install-packages
       - restore_cache:
-          key: deps_python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          keys:
+            - deps-python-{{ .Branch }}
+            - deps-python-
+
       - run:
           command: |
             sudo pip install pipenv
             pipenv install
       - save_cache:
-          key: deps_python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps-python-{{ .Branch }}
           paths:
             - 'venv'
   python_test:
@@ -117,7 +120,9 @@ jobs:
       - run:
           command: cd python
       - restore_cache:
-          key: deps_python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          keys:
+            - deps-python-{{ .Branch }}
+            - deps-python-
       - run:
           name: Test
           command: echo test
