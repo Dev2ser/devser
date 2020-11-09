@@ -103,7 +103,9 @@ jobs:
             - deps-python-
 
       - run:
+          name: Install pip3, pipenv and install dependencies
           command: |
+            sudo apt-get install python3-pip
             sudo pip install pipenv
             pipenv install
       - save_cache:
