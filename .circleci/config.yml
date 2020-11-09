@@ -105,6 +105,8 @@ jobs:
       - run:
           name: Install pip3, pipenv and install dependencies
           command: |
+            sudo add-apt-repository universe
+            sudo apt-get update
             sudo apt-get install python3-pip
             sudo pip install pipenv
             pipenv install
