@@ -7,9 +7,8 @@ jobs:
   Bump Version:
     runs-on: ubuntu-latest
     steps:
-      - name: bump-version
       - uses: remorses/bump-version@js
         with:
           version_file: VERSION
           prefix: v
-          github_token: ${{ secrets.GITHUB_TOKEN }}  
+          github_token: ${{ secrets.GITHUB_TOKEN }}
