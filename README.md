@@ -51,15 +51,13 @@ hoping to get a scholarship to a top university.
 
 # Installation
 
-You can get the project's source code in 3 different ways:
+You can install the project via cloning it with HTTPS:<br />
+`git clone https://github.com/Dev2ser/devser.git`
 
-1. cloning it with HTTPS:<br />
-   `git clone https://github.com/Dev2ser/devser.git`
+or with SSH:<br />
+`git clone git@github.com:Dev2ser/devser.git`
 
-2. or with SSH:<br />
-   `git clone git@github.com:Dev2ser/devser.git`
-
-3. or by downloading the source code!
+or by downloading the source code!
 
 # Available Scripts
 
@@ -67,7 +65,7 @@ In the project directory, you can run:
 
 ### `npm run git:python`
 
-Runs the python application located in the python folder.
+Runs the python program located in the python folder.
 
 ### `npm start`
 
@@ -79,7 +77,7 @@ You will also see any lint errors in the console.
 
 ### `npm run storybook`
 
-Runs the storybook environment.<br />
+Runs the storybook app.<br />
 Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
 
 ### `npm test`
@@ -93,28 +91,38 @@ Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
 ### `npm run build:tailwind`
 
 Builds the tailwind source code.<br />
-Don't use it manually, Other scripts use it automatically.
+Don't use it manually, Others scripts use it automatically.
 
 ### `npm run build:storybook`
 
-Builds all `.stories.js` files.
+Builds all .stories.js files.
 
 ### `npm run deploy:github`
 
-Deploys all files in `/docs` to https://dev2ser.github.io/devser.
+Deploys all files in /docs to https://dev2ser.github.io/devser
 
 ### `npm run deploy:firebase`
 
-Deploys the project to [firebase](https://console-devser.firebaseapp.com).
+Deploys the build folder to firebase (https://console-devser.firebaseapp.com)
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 # Contributing
 
-If you want to contribute simply get the source code [(Guide)](https://github.com/Dev2ser/devser#installation),
-and do anything with it that you think is better and will improve the project, and create a pull request.<br />
+If you want to contribute simply install the source code, and do anything with it that you think is better, and create a pull request.<br />
 It will be reviewed, if it's helpful in any way it will be merged.
 
 Also, please read the [CONTRIBUTING](https://github.com/Dev2ser/devser/blob/master/CONTRIBUTING.md) Guide.
