@@ -135,7 +135,7 @@ workflows:
   version: 2
   build_deploy:
     jobs:
-      - prepare_dependencies_and_cache
+      - prepare_dependencies_and_cache:
           filters:
             branches:
               ignore: /dependabot\//
@@ -167,7 +167,7 @@ workflows:
               ignore: /dependabot\//
   python:
     jobs:
-      - python_install_dependencies
+      - python_install_dependencies:
           filters:
             branches:
               ignore: /dependabot\//
