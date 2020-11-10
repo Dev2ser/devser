@@ -108,7 +108,7 @@ jobs:
             sudo add-apt-repository universe
             sudo apt-get update
             sudo apt-get install python3-pip
-            sudo pip install pipenv
+            sudo pip3 install pipenv
             pipenv install
       - save_cache:
           key: deps-python-{{ .Branch }}
@@ -136,23 +136,51 @@ workflows:
   build_deploy:
     jobs:
       - prepare_dependencies_and_cache
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
       - build:
           requires:
             - prepare_dependencies_and_cache
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
       - test:
           requires:
             - prepare_dependencies_and_cache
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
       - hold:
           type: approval
           requires:
             - build
             - test
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
       - deploy:
           requires:
             - hold
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
   python:
     jobs:
       - python_install_dependencies
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
       - python_test:
           requires:
             - python_install_dependencies
+          filters:
+            branches:
+              ignore:
+                - /dependabot\//
