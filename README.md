@@ -39,6 +39,7 @@
 # Table of Contents
 
 - [About the Author](#about-the-author)
+- [Prerequisite](#prerequisite)
 - [Installation](#installation)
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
@@ -48,6 +49,13 @@
 
 Hello 👋, My name is Yasser a High school student with high ambitions.<br />
 hoping to get a scholarship to a top university.
+
+# Prerequisite
+
+- Node version 12.13 or higher.
+- NPM (Node Package Manager).
+- Git
+- Python version 3.6.3
 
 # Installation
 
@@ -60,6 +68,18 @@ You can get the project's source code in 3 different ways:
    `git clone git@github.com:Dev2ser/devser.git`
 
 3. or by downloading the source code!
+
+After installing the project, run the following command to install the project dependencies:
+
+```bash
+npm install
+```
+
+Then to run the code, run the following command:
+
+```bash
+npm start
+```
 
 # Available Scripts
 
