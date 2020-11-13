@@ -20,9 +20,6 @@
   <a href="https://img.shields.io/github/license/Dev2ser/devser">
     <img src="https://img.shields.io/github/license/Dev2ser/devser" alt="Github" />
   </a>&nbsp;
-  <a href="https://travis-ci.com/Dev2ser/devser">
-    <img src="https://travis-ci.com/Dev2ser/devser.svg?branch=master" alt="TravisCI Build Status" />
-  </a>&nbsp;
   <a href="https://app.circleci.com/pipelines/github/Dev2ser/devser">
     <img src="https://img.shields.io/circleci/build/github/Dev2ser/devser?label=circleci" alt="CircleCI" />
   </a>&nbsp;
@@ -36,10 +33,12 @@
 
 <hr>
 
-# Table of Contents
+You can also view this in other languages: English | [عربية](https://github.com/Dev2ser/devser/blob/master/translations/lang_ar.md) | [Española](https://github.com/Dev2ser/devser/blob/master/translations/lang_es.md) | [Française](https://github.com/Dev2ser/devser/blob/master/translations/lang_fr.md) | [中文](https://github.com/Dev2ser/devser/blob/master/translations/lang_zh.md)
+
+<hr>
 
 - [About the Author](#about-the-author)
-- [Prerequisite](#prerequisite)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
@@ -50,7 +49,7 @@
 Hello 👋, My name is Yasser a High school student with high ambitions.<br />
 hoping to get a scholarship to a top university.
 
-# Prerequisite
+# Prerequisites
 
 - Node version 12.13 or higher.
 - NPM (Node Package Manager).
