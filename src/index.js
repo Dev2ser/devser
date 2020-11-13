@@ -7,16 +7,24 @@ import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from './components';
 import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from './components';
+import { reloadWindow } from './service/WindowHandler';
 import LogRocket from 'logrocket';
-LogRocket.init('8jofda/devser');
+LogRocket.init(process.env.REACT_APP_LOGROCKET);
 
 ReactDOM.render(
   <HttpsRedirect>
     <ErrorBoundary
       render={() => (
-        <div>
-          <p>Oops! an error occurred, Try again later.</p>
-          <button onClick={() => window.location.reload()}>Reload Page</button>
+        <div className="flex h-screen">
+          <div className="m-auto text-center">
+            <p>Oops! an error has occurred, Try again later.</p>
+            <button
+              onClick={() => reloadWindow()}
+              className="text-blue-700 hover:text-blue-700 underline hover:underline"
+            >
+              Refresh
+            </button>
+          </div>
         </div>
       )}
     >
