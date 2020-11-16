@@ -24,8 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Should be ignored in my situation
-/.firebase/
-/.vscode/
+/.firebase
+/.vscode
 
 # Personal
 instructions.dev
