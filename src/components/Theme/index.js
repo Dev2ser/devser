@@ -1,3 +1,2 @@
-export { ThemeContext } from './hooks';
-export { ThemeProvider } from './hooks';
+export { ThemeContext, ThemeProvider } from './hooks';
 export { Switch } from './Switch';

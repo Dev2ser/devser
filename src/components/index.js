@@ -1,8 +1,8 @@
-export { SignIn, SignUp, ResetPassword } from './Auth';
-export { ErrorBoundary } from './Error/ErrorBoundary';
-export { ThemeProvider, Switch } from './Theme';
-export { Subject } from './Subject';
+export { ResetPassword, SignIn, SignUp } from './Auth';
 export { Button } from './Button';
 export { DocHeader } from './DocHeader';
-export { NavItem, ActionItem } from './NavElements';
+export { ErrorBoundary } from './Error/ErrorBoundary';
 export { Logo } from './Logo';
+export { ActionItem, NavItem } from './NavElements';
+export { Subject } from './Subject';
+export { Switch, ThemeProvider } from './Theme';

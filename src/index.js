@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HttpsRedirect from 'react-https-redirect';
-import './index.css';
-import App from './App/App';
-import * as serviceWorker from './serviceWorker';
-import { ThemeProvider } from './components';
 import { BrowserRouter } from 'react-router-dom';
-import { ErrorBoundary } from './components';
-import { reloadWindow } from './service/WindowHandler';
 import LogRocket from 'logrocket';
+import App from './App/App';
+import { ErrorBoundary, ThemeProvider } from './components';
+import './index.css';
+import { reloadWindow } from './service/WindowHandler';
+import * as serviceWorker from './serviceWorker';
 LogRocket.init(process.env.REACT_APP_LOGROCKET);
 
 ReactDOM.render(

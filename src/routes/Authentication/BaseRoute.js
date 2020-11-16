@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// Temporary
-// eslint-disable-next-line
-import Admin from '../../pages/Admin';
-import { Portfolio } from '../../pages/';
 import { Redirect } from 'react-router-dom';
+import { Portfolio } from '../../pages/';
 
 export class BaseRoute extends Component {
   // eslint-disable-next-line
