@@ -1,0 +1,21 @@
+#root:empty {
+  position: absolute;
+  top: calc(50% - 1em);
+  left: calc(50% - 1em);
+  width: 3em;
+  height: 3em;
+  border: 0.5em solid rgba(0, 0, 0, 0);
+  border-left: 0.4em solid #667eea;
+  border-right: 0.4em solid #667eea;
+  border-radius: 50%;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

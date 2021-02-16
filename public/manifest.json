@@ -1,18 +1,30 @@
 {
   "name": "Devser",
   "short_name": "Devser",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "theme_color": "#1f2937",
+  "background_color": "#1f2937",
   "description": "Devser's platform for projects and other services",
+  "categories": ["education", "utilities"],
   "display": "standalone",
-  "start_url": ".",
-  "icons": [
+  "orientation": "any",
+  "start_url": "/?utm_source=homescreen",
+  "shortcuts": [
     {
-      "src": "assets/pwa/maskable_icon.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "maskable"
+      "name": "Home Page",
+      "short_name": "Home Page",
+      "description": "Open the home screen page",
+      "url": "/?utm_source=homescreen",
+      "icons": [{ "src": "/assets/icons/icon-96x96.png", "sizes": "96x96" }]
     },
+    {
+      "name": "View Subjects",
+      "short_name": "View Subjects",
+      "description": "View the list of subjects you have stored",
+      "url": "/subjects?utm_source=homescreen",
+      "icons": [{ "src": "/assets/icons/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
       "sizes": "72x72",
