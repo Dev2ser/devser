@@ -85,6 +85,19 @@ jobs:
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+  notify_rollbar:
+    executor: node_executor
+    steps:
+      - run:
+          name: Deployment notification to Rollbar
+          command: |
+            curl https://api.rollbar.com/api/1/deploy/ \
+            -F access_token='1aa0012accb2405eb51c111a99fd8eb8' \
+            -F environment=production \
+            -F revision=$CIRCLE_SHA1 \
+            -F rollbar_username=Dev2ser \
+            -F local_username=$CIRCLE_USERNAME \
+            -F comment='Rollbar Deployment'
 
   python_install_dependencies:
     working_directory: ~/project
@@ -165,6 +178,9 @@ workflows:
           filters:
             branches:
               ignore: /dependabot\//
+      - notify_rollbar:
+          requires:
+            - deploy
   python:
     jobs:
       - python_install_dependencies:
