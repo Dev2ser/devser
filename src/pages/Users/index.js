@@ -56,7 +56,7 @@ export function Users() {
                         className="bg-white divide-y divide-gray-200"
                       >
                         <tr>
-                          <td className="px-6 py-4 whitespace-no-wrap">
+                          <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center">
                               <div className="flex-shrink-0 h-10 w-10">
                                 <svg
@@ -79,12 +79,12 @@ export function Users() {
                               </div>
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-no-wrap">
+                          <td className="px-6 py-4 whitespace-nowrap">
                             <div className="text-sm leading-5 font-medium text-gray-700">
                               {user.uid}
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-no-wrap">
+                          <td className="px-6 py-4 whitespace-nowrap">
                             <span
                               className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 ${
                                 user.isVerified
@@ -95,10 +95,10 @@ export function Users() {
                               {capitalizeFirstLetter(String(user.isVerified))}
                             </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm leading-5 text-gray-500">
                             Admin
                           </td>
-                          <td className="px-6 py-4 whitespace-no-wrap leading-5 font-medium">
+                          <td className="px-6 py-4 whitespace-nowrap leading-5 font-medium">
                             <button className="outline-none text-indigo-600 hover:text-indigo-900 text-sm font-medium">
                               Edit
                             </button>
