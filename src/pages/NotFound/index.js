@@ -1,14 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// eslint-disable-next-line
 import PageNotFound from '../../assets/images/PageNotFound.png';
-import { Link } from 'react-router-dom';
-import { DocHeader } from '../../components';
+import { DocHeader, GoBack } from '../../components';
 
-export const NotFound = () => (
-  <div>
+const containerStyles = {
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+};
+
+const contentStyles = {
+  textAlign: 'center',
+  margin: 0,
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+};
+
+export const NotFound = ({ location }) => (
+  <div style={containerStyles}>
     <DocHeader>NotFound</DocHeader>
 
-    <img
-      alt="WTF Dont You See??! Of Course It's A Fucking 404 Page You Fucking Idiot"
+    {/* <img
+      alt="404"
       src={PageNotFound}
       style={{
         width: '100%',
@@ -18,17 +34,22 @@ export const NotFound = () => (
         margin: 'auto',
         position: 'relative',
       }}
-    />
-
-    <center>
+    /> */}
+    <div style={contentStyles}>
       <p
         style={{
           fontSize: 32,
         }}
       >
-        Page Not Found
+        Sorry but <b>{location.pathname}</b> didn’t match any pages.
       </p>
-      <Link to="/">Go back</Link>
-    </center>
+      <GoBack />
+    </div>
   </div>
 );
+
+NotFound.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
