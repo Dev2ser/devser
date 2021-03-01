@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Image = styled.img`
@@ -6,6 +7,10 @@ const Image = styled.img`
   width: ${(props) => props.width};
   border-radius: ${(props) => (props.rounded ? '50%' : '0%')};
 `;
+
+// export const PerspectiveImage = styled.img`
+
+// `
 
 export function RoundImage(props) {
   let { src, height = 50, width = 50, alt } = props;
@@ -27,3 +32,10 @@ export function RoundImage(props) {
     />
   );
 }
+
+RoundImage.propTypes = {
+  src: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
+  alt: PropTypes.string,
+};
