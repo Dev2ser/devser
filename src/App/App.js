@@ -84,7 +84,7 @@ export default class App extends Component {
             )}
           />
           {/* <Route exact path={'/users'} component={UsersPanel} /> */}
-          <PrivateRoute component={Users} />
+          <PrivateRoute exact path={'/users'} component={Users} />
           <Route component={NotFound} />
         </Switch>
       </div>
