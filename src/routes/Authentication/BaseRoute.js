@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Portfolio } from '../../pages/';
 
 export class BaseRoute extends Component {
@@ -15,3 +16,7 @@ export class BaseRoute extends Component {
     );
   }
 }
+
+BaseRoute.propTypes = {
+  user: PropTypes.object,
+};

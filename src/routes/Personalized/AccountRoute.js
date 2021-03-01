@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { SignIn } from '../../components/';
 import { Account } from '../../pages/';
 
@@ -15,3 +16,7 @@ export class AccountRoute extends Component {
     );
   }
 }
+
+AccountRoute.propTypes = {
+  user: PropTypes.object,
+};

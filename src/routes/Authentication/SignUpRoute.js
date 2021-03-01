@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { SignUp } from '../../components';
 
 export class SignUpRoute extends Component {
@@ -7,7 +8,6 @@ export class SignUpRoute extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <React.Fragment>
@@ -16,3 +16,7 @@ export class SignUpRoute extends Component {
     );
   }
 }
+
+SignUpRoute.propTypes = {
+  user: PropTypes.object,
+};

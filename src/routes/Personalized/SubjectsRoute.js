@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { SignIn } from '../../components';
 import { Subjects } from '../../pages/';
 
@@ -15,3 +16,7 @@ export class SubjectsRoute extends Component {
     );
   }
 }
+
+SubjectsRoute.propTypes = {
+  user: PropTypes.object,
+};
