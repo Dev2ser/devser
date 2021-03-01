@@ -1,3 +1,1 @@
-import ErrorBoundaryHolder from './ErrorBoundary';
-
-export const ErrorBoundary = ErrorBoundaryHolder;
+export { ErrorBoundary } from './ErrorBoundary';
