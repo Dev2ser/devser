@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Grow } from '@material-ui/core';
-
-import { DocHeader } from '../../';
 import { Link as Linker } from 'react-router-dom';
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  makeStyles,
+  Container,
+  Grow,
+  IconButton,
+  InputAdornment,
+} from '@material-ui/core';
+import { LockOutlined } from '@material-ui/icons';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { DocHeader } from '../../index';
+import { auth } from '../../../config/base';
+import './SignIn.scss';
 
 // eslint-disable-next-line
 import GoogleIcon from '../../../assets/icons/google.jpg';
@@ -23,7 +29,6 @@ import GoogleIcon from '../../../assets/icons/google.jpg';
 import firebase from 'firebase/app';
 // eslint-disable-next-line
 import firebaseui from 'firebaseui';
-import { auth } from '../../../config/base';
 
 function Copyright() {
   return (
@@ -47,14 +52,19 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#5a67d8',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(2, 0, 2),
+    color: '#fff',
+    backgroundColor: '#667eea',
+    '&:hover': {
+      backgroundColor: '#5a67d8',
+    },
   },
   loginWithGoogle: {
     margin: theme.spacing(0),
@@ -66,9 +76,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const inputStyle = { WebkitBoxShadow: '0 0 0 1000px white inset' };
+const errorMessageStyles = {
+  color: 'red',
+  textAlign: 'center',
+  marginTop: 20,
+};
+
 export function SignIn() {
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [emailIsError, setEmailIsError] = useState(false);
   const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [passwordIsError, setPasswordIsError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [error, isError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -76,25 +98,63 @@ export function SignIn() {
     setEmail(e.target.value);
   };
 
-  const handlePass = (e) => {
+  const handlePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const validate = () => {
+    let isError = false;
+
+    if (email.indexOf('@') === -1) {
+      isError = true;
+      setEmailIsError(true);
+      setEmailError('Requires valid email');
+    }
+    if (email === '') {
+      isError = true;
+      setEmailIsError(true);
+      setEmailError('Email is required');
+    }
+    if (password === '') {
+      isError = true;
+      setPasswordIsError(true);
+      setPasswordError('Password is required');
+    }
+    return isError;
   };
 
   const login = (e) => {
     e.preventDefault();
 
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((u) => {
-        console.log('Current User:', u);
-        isError(false);
-        setErrorMessage('');
-      })
-      .catch((error) => {
-        console.log(error);
-        isError(true);
-        setErrorMessage(error.message);
-      });
+    const err = validate();
+    if (!err) {
+      auth
+        .signInWithEmailAndPassword(email, password)
+        .then((u) => {
+          console.log('Current User:', u);
+          setEmail('');
+          setEmailError('');
+          setEmailIsError(false);
+          setPassword('');
+          setEmailError('');
+          setEmailIsError(false);
+          isError(false);
+          setErrorMessage('');
+        })
+        .catch((error) => {
+          console.log(error);
+          isError(true);
+          setErrorMessage(error.message);
+        });
+    }
   };
 
   // const loginWithGoogle = (e) => {
@@ -137,7 +197,7 @@ export function SignIn() {
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
+            <LockOutlined />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -146,6 +206,9 @@ export function SignIn() {
             <TextField
               value={email}
               onChange={handleEmail}
+              error={emailIsError}
+              helperText={emailError}
+              name="email"
               variant="outlined"
               margin="normal"
               required
@@ -153,29 +216,45 @@ export function SignIn() {
               id="email"
               label="Email Address"
               type="email"
-              name="email"
               autoComplete="email"
               autoFocus
+              inputProps={{ style: inputStyle }}
             />
             <TextField
               value={password}
-              onChange={handlePass}
+              onChange={handlePassword}
+              error={passwordIsError}
+              helperText={passwordError}
+              name="password"
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
               id="password"
+              label="Password"
+              type={showPassword ? 'text' : 'password'}
               autoComplete="current-password"
+              inputProps={{ style: inputStyle }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <FaEye /> : <FaEyeSlash />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
             <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
               className={classes.submit}
+              variant="contained"
+              fullWidth
+              type="submit"
               onClick={login}
             >
               Sign In
@@ -192,25 +271,17 @@ export function SignIn() {
             </Button> */}
             <Grid container>
               <Grid item xs>
-                <Linker
-                  to="/auth/reset-password"
-                  variant="body2"
-                  className="link"
-                >
-                  Forgot password?
+                <Linker to="/auth/reset-password" variant="body2">
+                  {'Forgot password?'}
                 </Linker>
               </Grid>
               <Grid item>
-                <Linker to="/auth/signup" variant="body2" className="link">
+                <Linker to="/auth/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Linker>
               </Grid>
             </Grid>
-            {error && (
-              <p style={{ color: 'red', textAlign: 'center', marginTop: 20 }}>
-                {errorMessage}
-              </p>
-            )}
+            {error && <p style={errorMessageStyles}>{errorMessage}</p>}
           </form>
         </div>
         <Box mt={8}>
