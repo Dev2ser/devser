@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Grow } from '@material-ui/core';
-
-import { DocHeader } from '../../';
 import { Link as Linker } from 'react-router-dom';
-
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  makeStyles,
+  Container,
+  Grow,
+} from '@material-ui/core';
+import { LockOutlined } from '@material-ui/icons';
+import { DocHeader } from '../../index';
 import { auth } from '../../../config/base';
+import './ResetPassword.scss';
 
 function Copyright() {
   return (
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#667eea',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -47,6 +48,11 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    color: '#fff',
+    backgroundColor: '#667eea',
+    '&:hover': {
+      backgroundColor: '#5a67d8',
+    },
   },
   loginWithGoogle: {
     width: '396',
@@ -58,30 +64,63 @@ const useStyles = makeStyles((theme) => ({
 
 export function ResetPassword() {
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [emailIsError, setEmailIsError] = useState(false);
   const [error, isError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
+
+    if (email.length >= 0) {
+      setEmailIsError(false);
+      setEmailError('');
+    }
+  };
+
+  const validate = () => {
+    let isError = false;
+
+    if (email.indexOf('@') === -1) {
+      isError = true;
+      setEmailIsError(true);
+      setEmailError('Requires valid email');
+    }
+    if (email === '') {
+      isError = true;
+      setEmailIsError(true);
+      setEmailError('Email is required');
+    }
+
+    return isError;
   };
 
   const sendResetEmail = (event) => {
     event.preventDefault();
 
-    auth
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        setEmail('');
-        isError(true);
-        setErrorMessage('An email has been sent to you!');
-        setTimeout(() => {
+    const err = validate();
+    if (!err) {
+      auth
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          setEmail('');
+          setEmailError('');
+          setEmailIsError(false);
           isError(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        isError(true);
-        setErrorMessage(error.message);
-      });
+          setErrorMessage('');
+          setIsSuccess(true);
+          setSuccessMessage('An email has been sent to you!');
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsSuccess(false);
+          setSuccessMessage('');
+          isError(true);
+          setErrorMessage(error.message);
+        });
+    }
   };
 
   const classes = useStyles();
@@ -92,7 +131,7 @@ export function ResetPassword() {
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
+            <LockOutlined />
           </Avatar>
           <Typography component="h1" variant="h5">
             Reset Password
@@ -101,6 +140,9 @@ export function ResetPassword() {
             <TextField
               value={email}
               onChange={handleEmail}
+              error={emailIsError}
+              helperText={emailError}
+              name="email"
               variant="outlined"
               margin="normal"
               required
@@ -108,29 +150,32 @@ export function ResetPassword() {
               id="email"
               label="Email Address"
               type="email"
-              name="email"
               autoComplete="email"
             />
             <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
               className={classes.submit}
+              variant="contained"
+              fullWidth
+              type="submit"
               onClick={sendResetEmail}
             >
               Submit
             </Button>
             <Grid container style={{ marginTop: '20px' }}>
               <Grid item style={{ width: '100%', textAlign: 'center' }}>
-                <Linker to="/" variant="body2" className="link">
+                <Linker to="/" variant="body2">
                   {'Cancel'}
                 </Linker>
               </Grid>
             </Grid>
             {error && (
-              <p style={{ color: 'green', textAlign: 'center', marginTop: 20 }}>
+              <p style={{ color: 'red', textAlign: 'center', marginTop: 20 }}>
                 {errorMessage}
+              </p>
+            )}
+            {isSuccess && (
+              <p style={{ color: 'green', textAlign: 'center', marginTop: 20 }}>
+                {successMessage}
               </p>
             )}
           </form>
