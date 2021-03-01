@@ -1,6 +1,5 @@
 import React from 'react';
 import { HeroSection } from '../../../data/pageData';
-import HeroImg from '../../../assets/images/ladder-700px.png';
 
 export default class Hero extends React.Component {
   componentDidMount() {
@@ -44,8 +43,10 @@ export default class Hero extends React.Component {
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img
               className="object-cover object-center rounded"
-              alt="hero"
-              src={HeroImg}
+              alt={HeroSection.alt}
+              src={HeroSection.imgSrc}
+              width="720"
+              height="700"
             />
           </div>
         </div>
