@@ -26,6 +26,9 @@
   <a href="https://github.com/Dev2ser/devser/actions?query=workflow%3ACodeQL">
     <img src="https://github.com/Dev2ser/devser/workflows/CodeQL/badge.svg" alt="CodeQL" />
   </a>&nbsp;
+  <a href="https://www.codefactor.io/repository/github/dev2ser/devser">
+    <img src="https://www.codefactor.io/repository/github/dev2ser/devser/badge" alt="CodeFactor" />
+  </a>&nbsp;
   <a href="https://gitlocalize.com/repo/5485/whole_project?utm_source=badge">
     <img src="https://gitlocalize.com/repo/5485/whole_project/badge.svg" alt="gitlocalized" />
   </a>
@@ -52,7 +55,7 @@ hoping to get a scholarship to a top university.
 # Prerequisites
 
 - Node version 12.13 or higher.
-- NPM (Node Package Manager).
+- Yarn.
 - Git
 - Python version 3.6.3
 
@@ -71,24 +74,24 @@ You can get the project's source code in 3 different ways:
 After installing the project, run the following command to install the project dependencies:
 
 ```bash
-npm install
+yard add
 ```
 
 Then to run the code, run the following command:
 
 ```bash
-npm start
+yarn start
 ```
 
 # Available Scripts
 
 In the project directory, you can run:
 
-### `npm run git:python`
+### `yarn run git:python`
 
 Runs the python application located in the python folder.
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -96,37 +99,37 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm run storybook`
+### `yarn run storybook`
 
 Runs the storybook environment.<br />
 Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
 
-### `npm test`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `yarn run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
 
-### `npm run build:tailwind`
+### `yarn run build:tailwind`
 
 Builds the tailwind source code.<br />
 Don't use it manually, Other scripts use it automatically.
 
-### `npm run build:storybook`
+### `yarn run build:storybook`
 
 Builds all `.stories.js` files.
 
-### `npm run deploy:github`
+### `yarn run deploy:github`
 
 Deploys all files in `/docs` to https://dev2ser.github.io/devser.
 
-### `npm run deploy:firebase`
+### `yarn run deploy:firebase`
 
 Deploys the project to [firebase](https://console-devser.firebaseapp.com).
 
