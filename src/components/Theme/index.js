@@ -1,2 +1,2 @@
 export { ThemeContext, ThemeProvider } from './hooks';
-export { Switch } from './Switch';
+export { SwitchWithIcons, SimpleSwitch } from './Switches';

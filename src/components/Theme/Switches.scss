@@ -5,15 +5,10 @@
   transition: all 0.5s ease;
 }
 
-button {
-  outline: none;
-  cursor: pointer;
-}
-
 .Switch {
   width: 4rem;
   height: 2rem;
-  margin: 0rem 0;
+  margin: 0 0;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -28,6 +23,8 @@ button {
   box-shadow: 4px 4px 10px -3px black;
   background: none;
   padding: 0;
+  outline: none;
+  cursor: pointer;
   .icon {
     font-size: 1.3rem;
   }
