@@ -23,13 +23,13 @@ jobs:
       - *attach_workspace
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "package-lock.json" }}
+            - node-v1-{{ checksum "yarn.lock" }}
             - node-v1-
       - run:
           name: Install Dependencies
           command: npm ci
       - save_cache:
-          key: node-v1-{{ checksum "package-lock.json" }}
+          key: node-v1-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
   build:
@@ -39,7 +39,7 @@ jobs:
       - *attach_workspace
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "package-lock.json" }}
+            - node-v1-{{ checksum "yarn.lock" }}
             - node-v1-
       - run:
           name: Build
@@ -61,7 +61,7 @@ jobs:
       - *attach_workspace
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "package-lock.json" }}
+            - node-v1-{{ checksum "yarn.lock" }}
             - node-v1-
       - run:
           name: Run Tests
@@ -73,7 +73,7 @@ jobs:
       - *attach_workspace
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "package-lock.json" }}
+            - node-v1-{{ checksum "yarn.lock" }}
             - node-v1-
       - run:
           name: Restore Previous Job Assets (build) to the Root Directory.
