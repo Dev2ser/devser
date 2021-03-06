@@ -22,28 +22,31 @@ jobs:
       - checkout
       - *attach_workspace
       - restore_cache:
+          name: Restore Yarn Package Cache
           keys:
-            - node-v1-{{ checksum "yarn.lock" }}
-            - node-v1-
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
       - run:
           name: Install Dependencies
-          command: npm ci
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
-          key: node-v1-{{ checksum "yarn.lock" }}
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - ./node_modules
+            - ~/.cache/yarn
   build:
     executor: node_executor
     steps:
       - checkout
       - *attach_workspace
       - restore_cache:
+          name: Restore Yarn Package Cache
           keys:
-            - node-v1-{{ checksum "yarn.lock" }}
-            - node-v1-
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
       - run:
           name: Build
-          command: npm run build
+          command: yarn run build
       - run:
           name: 'Move build to workspace' # Move build into our workspace.
           command: |
@@ -60,21 +63,23 @@ jobs:
       - checkout
       - *attach_workspace
       - restore_cache:
+          name: Restore Yarn Package Cache
           keys:
-            - node-v1-{{ checksum "yarn.lock" }}
-            - node-v1-
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
       - run:
           name: Run Tests
-          command: npm test
+          command: yarn test
   deploy:
     executor: node_executor
     steps:
       - checkout
       - *attach_workspace
       - restore_cache:
+          name: Restore Yarn Package Cache
           keys:
-            - node-v1-{{ checksum "yarn.lock" }}
-            - node-v1-
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
       - run:
           name: Restore Previous Job Assets (build) to the Root Directory.
           command: |
@@ -193,3 +198,181 @@ workflows:
           filters:
             branches:
               ignore: /dependabot\//
+# jobs:
+#   prepare_dependencies_and_cache:
+#     executor: node_executor
+#     steps:
+#       - checkout
+#       - *attach_workspace
+#       - restore_cache:
+#           keys:
+#             - node-v1-{{ checksum "package-lock.json" }}
+#             - node-v1-
+#       - run:
+#           name: Install Dependencies
+#           command: npm ci
+#       - save_cache:
+#           key: node-v1-{{ checksum "package-lock.json" }}
+#           paths:
+#             - ./node_modules
+#   build:
+#     executor: node_executor
+#     steps:
+#       - checkout
+#       - *attach_workspace
+#       - restore_cache:
+#           keys:
+#             - node-v1-{{ checksum "package-lock.json" }}
+#             - node-v1-
+#       - run:
+#           name: Build
+#           command: npm run build
+#       - run:
+#           name: 'Move build to workspace' # Move build into our workspace.
+#           command: |
+#             set -exu
+#             mkdir -p /tmp/workspace/build
+#             mv ~/project/build/* /tmp/workspace/build
+#       - persist_to_workspace: # store the built files into the workspace for other jobs.
+#           root: *workspace_root
+#           paths:
+#             - build
+#   test:
+#     executor: node_executor
+#     steps:
+#       - checkout
+#       - *attach_workspace
+#       - restore_cache:
+#           keys:
+#             - node-v1-{{ checksum "package-lock.json" }}
+#             - node-v1-
+#       - run:
+#           name: Run Tests
+#           command: npm test
+#   deploy:
+#     executor: node_executor
+#     steps:
+#       - checkout
+#       - *attach_workspace
+#       - restore_cache:
+#           keys:
+#             - node-v1-{{ checksum "package-lock.json" }}
+#             - node-v1-
+#       - run:
+#           name: Restore Previous Job Assets (build) to the Root Directory.
+#           command: |
+#             set -exu
+#             mkdir -p /tmp/workspace/build
+#             mkdir -p ~/project/build
+#             mv /tmp/workspace/build/* ~/project/build/
+#       - run:
+#           name: Firebase Deploy
+#           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+#   notify_rollbar:
+#     executor: node_executor
+#     steps:
+#       - run:
+#           name: Deployment notification to Rollbar
+#           command: |
+#             curl https://api.rollbar.com/api/1/deploy/ \
+#             -F access_token='1aa0012accb2405eb51c111a99fd8eb8' \
+#             -F environment=production \
+#             -F revision=$CIRCLE_SHA1 \
+#             -F rollbar_username=Dev2ser \
+#             -F local_username=$CIRCLE_USERNAME \
+#             -F comment='Rollbar Deployment'
+
+#   python_install_dependencies:
+#     working_directory: ~/project
+#     executor: python_executor
+#     steps:
+#       - checkout
+#       # - run: sudo chown -R circleci:circleci /usr/local/bin
+#       # - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+#       - run:
+#           name: Navigate To The python Folder
+#           command: cd python
+#       # - python/install-packages
+#       - restore_cache:
+#           keys:
+#             - deps-python-{{ .Branch }}
+#             - deps-python-
+
+#       - run:
+#           name: Install pip3, pipenv and install dependencies
+#           command: |
+#             sudo add-apt-repository universe
+#             sudo apt-get update
+#             sudo apt-get install python3-pip
+#             sudo pip3 install pipenv
+#             pipenv install
+#       - save_cache:
+#           key: deps-python-{{ .Branch }}
+#           paths:
+#             - 'venv'
+#   python_test:
+#     working_directory: ~/project
+#     executor: python_executor
+#     steps:
+#       - checkout
+#       # - run: sudo chown -R circleci:circleci /usr/local/bin
+#       # - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+#       - run:
+#           command: cd python
+#       - restore_cache:
+#           keys:
+#             - deps-python-{{ .Branch }}
+#             - deps-python-
+#       - run:
+#           name: Test
+#           command: echo test
+
+# workflows:
+#   version: 2
+#   build_deploy:
+#     jobs:
+#       - prepare_dependencies_and_cache:
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
+#       - build:
+#           requires:
+#             - prepare_dependencies_and_cache
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
+#       - test:
+#           requires:
+#             - prepare_dependencies_and_cache
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
+#       - hold:
+#           type: approval
+#           requires:
+#             - build
+#             - test
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
+#       - deploy:
+#           requires:
+#             - hold
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
+#       - notify_rollbar:
+#           requires:
+#             - deploy
+#   python:
+#     jobs:
+#       - python_install_dependencies:
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
+#       - python_test:
+#           requires:
+#             - python_install_dependencies
+#           filters:
+#             branches:
+#               ignore: /dependabot\//
