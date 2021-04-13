@@ -5,7 +5,7 @@
   "description": "my own playground",
   "author": "Yasser",
   "bugs": {
-    "url": "https://github.com/RobertJoining/devser/issues",
+    "url": "https://github.com/Dev2ser/devser/issues",
     "email": "devser.co@gmail.com"
   },
   "private": true,
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/RobertJoining/devser"
+    "url": "https://github.com/Dev2ser/devser"
   },
   "engines": {
     "npm": "6.12.0",
@@ -26,18 +26,20 @@
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
+    "@tailwindcss/forms": "^0.2.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/styled-components": "^5.1.3",
+    "autoprefixer": "^10.1.0",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
-    "firebase": "^7.23.0",
+    "firebase": "^8.2.6",
     "firebase-admin": "^8.9.2",
     "firebaseui": "^4.5.0",
-    "logrocket": "^1.0.14",
+    "logrocket": "^1.0.15",
     "node-sass": "^4.14.1",
-    "popper.js": "^1.16.1",
+    "postcss": "^8.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -47,20 +49,21 @@
     "react-icons": "^3.9.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
+    "react-ui": "^1.0.0-beta.30",
     "styled-components": "^5.0.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^2.0.1"
   },
   "scripts": {
     "python:git": "cd python/dist && GitAutomation.exe",
     "build:tailwind": "tailwindcss build src/utils/tailwind.css -o src/utils/tailwind.generated.css",
     "build:storybook": "build-storybook -s public",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "prestart": "npm run build:tailwind",
     "start": "react-scripts start",
     "prebuild": "npm run build:tailwind",
     "build": "react-scripts build",
     "predeploy:github": "npm run build",
     "deploy:github": "gh-pages -d build",
-    "predeploy:firebase": "npm run build",
     "deploy:firebase": "firebase deploy",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
@@ -88,6 +91,7 @@
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.26",
     "@types/jest": "^25.1.4",
+    "bundlesize": "^0.18.0",
     "cross-env": "^5.2.1",
     "firebase-tools": "^8.13.1",
     "gh-pages": "^3.0.0",
@@ -95,6 +99,7 @@
     "grunt-bump": "^0.8.0",
     "grunt-changelog": "^0.3.2",
     "prettier": "2.0.5",
+    "source-map-explorer": "^2.5.0",
     "webpack": "^4.42.0"
   },
   "license": "MIT"
