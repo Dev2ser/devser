@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/images/devser.png" alt="devser logo" width="120px" height="120px"/>
+  <img src="src/assets/images/devser_nobg.png" alt="devser logo" width="212px" height="212px"/>
   <br>
   <i>This project was made just to put my spare time in, In a nutshell, I make any idea comes to my mind.<br />
     <br> You can name it a portfolio if you want.</i>
@@ -50,14 +50,14 @@ You can also view this in other languages: English | [عربية](https://github
 # About the Author
 
 Hello 👋, My name is Yasser a High school student with high ambitions.<br />
-hoping to get a scholarship to a top university.
+hoping to get a scholarship in a top university.
 
 # Prerequisites
 
 - Node version 12.13 or higher.
 - Yarn.
-- Git
-- Python version 3.6.3
+- Git.
+- Python version 3.6.3.
 
 # Installation
 
