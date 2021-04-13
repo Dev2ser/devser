@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function TimelineItem({ data }) {
   return (
@@ -19,3 +20,18 @@ export default function TimelineItem({ data }) {
     </div>
   );
 }
+
+TimelineItem.propTypes = {
+  data: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    category: PropTypes.shape({
+      tag: PropTypes.string,
+      color: PropTypes.string,
+    }).isRequired,
+    link: PropTypes.shape({
+      url: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  }),
+};

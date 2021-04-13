@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
-import { auth } from '../config/base';
 import { Route, Switch } from 'react-router-dom';
-import { BaseRoute } from '../routes';
-import { SignInRoute } from '../routes';
-import { SignUpRoute } from '../routes';
-import { AccountRoute } from '../routes';
-import { SubjectsRoute } from '../routes';
-// eslint-disable-next-line
-import { PrivateRoute } from '../routes';
-import { ResetPassword } from '../components';
-import { Users } from '../pages';
-import { NotFound } from '../pages';
 import LogRocket from 'logrocket';
+import { auth } from '../config/base';
+import { ResetPassword } from '../components';
+import { NotFound, Users } from '../pages';
+import {
+  AccountRoute,
+  BaseRoute,
+  PrivateRoute,
+  SignInRoute,
+  SignUpRoute,
+  SubjectsRoute,
+} from '../routes';
+import './App.css';
 
 export default class App extends Component {
   constructor() {
@@ -84,7 +84,7 @@ export default class App extends Component {
             )}
           />
           {/* <Route exact path={'/users'} component={UsersPanel} /> */}
-          <PrivateRoute component={Users} />
+          <PrivateRoute exact path={'/users'} component={Users} />
           <Route component={NotFound} />
         </Switch>
       </div>

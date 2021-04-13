@@ -1,16 +1,16 @@
-import os
 import sys
+from subprocess import call
 from colorama import *
 init()
 
 def gitAddAll():
     print(Fore.YELLOW + "staging...")
-    os.system("git add .")
+    call("git add .", shell=False)
     print(Fore.RED + "staged!")
 
 def gitAddFile(file):
     print(Fore.YELLOW + "staging specified file...")
-    os.system("git add " + file)
+    call("git add {}".format(file), shell=False)
     print(Fore.RED + "staged!" + Style.RESET_ALL)
 
 def gitAddOption():
@@ -30,4 +30,4 @@ def gitCommit():
     if commitMsg == "":
         sys.exit()
     else:
-        os.system("git commit -m {}".format(commitMsg))
+        call("git commit -m {}".format(commitMsg), shell=False) 

@@ -52,7 +52,7 @@
   position: absolute;
   left: calc(50% - 2px);
   width: 4px;
-  height: 100%;
+  height: calc(100% + 1rem);
 }
 
 .timeline-item {
@@ -62,6 +62,10 @@
   position: relative;
   margin: 10px 0;
   width: 50%;
+}
+
+.timeline-item:nth-child(1) {
+  margin-top: 100px;
 }
 
 .timeline-item:nth-child(odd) {
@@ -139,6 +143,11 @@
   max-width: 250px;
 }
 
+.timeline-item:nth-child(even) .timeline-item-content p {
+  align-self: flex-start;
+  text-align: left;
+}
+
 .timeline-item-content a {
   color: #333;
   text-decoration: none;
@@ -182,8 +191,21 @@
     align-items: center;
   }
 
+  .timeline-item:nth-child(odd) .timeline-item-content {
+    margin-right: 10px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-item-content {
+    margin-left: 10px;
+  }
+
   .timeline-item-content .tag {
     width: calc(100% - 10px);
+    text-align: center;
+  }
+
+  .timeline-item:nth-child(even) .timeline-item-content p {
+    align-self: center;
     text-align: center;
   }
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { DocHeader } from '../../../components';
-import { Switch } from '../../../components';
+import { SwitchWithIcons } from '../../../components';
 import { Logout, getUser } from '../../../service/Authentication';
 
 export default function Dashboard() {
@@ -14,7 +14,7 @@ export default function Dashboard() {
   return (
     <div className="align-items-center parent">
       <DocHeader>Dashboard</DocHeader>
-      <Switch />
+      <SwitchWithIcons />
       <h3 className="state">Logged in as {user.email}!</h3>
       <button
         data-testid="logout-btn"

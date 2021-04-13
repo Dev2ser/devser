@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { SignIn } from '../../components';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { SignIn } from '../../components';
 
 export class SignInRoute extends Component {
   // eslint-disable-next-line
@@ -15,3 +16,7 @@ export class SignInRoute extends Component {
     );
   }
 }
+
+SignInRoute.propTypes = {
+  user: PropTypes.object,
+};

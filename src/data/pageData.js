@@ -8,19 +8,19 @@ export const NavigationSection = {
     },
     {
       text: 'About',
-      link: '#about',
+      link: '/#about',
     },
     {
       text: 'Journey',
-      link: '#journey',
+      link: '/#journey',
     },
     {
       text: 'Skills',
-      link: '#skills',
+      link: '/#skills',
     },
     {
-      text: 'Contact',
-      link: '#contact',
+      text: 'Subjects',
+      link: '/subjects',
     },
   ],
   actionMenu: [
@@ -31,6 +31,10 @@ export const NavigationSection = {
     {
       text: 'Settings',
       link: '/settings',
+    },
+    {
+      text: 'Support',
+      link: '/support',
     },
     {
       text: 'Sign out',
@@ -69,9 +73,9 @@ export const AboutSection = {
   headline: 'Let me introduce',
   highlighted: ' myself',
   description:
-    'I’m Yasser a junior web developer/designer, i’m currently in the 10th grade.. planning for a scholarship to MIT.',
+    'I’m Yasser a junior web developer/designer, i’m currently in the 10th grade.. planning for a scholarship to Columbia University.',
   subDescription:
-    'i first knew about coding when i was 13 years old, since then i have never stopped learning new technologies and programming languages and never going to.',
+    'I first knew about coding when i was 13 years old, since then i have never stopped learning new technologies and programming languages and never going to.',
   primaryButtonLabel: 'Download CV',
   primaryButtonLink: '#',
   secondaryButtonLabel: 'Skills',
