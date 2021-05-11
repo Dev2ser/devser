@@ -11600,10 +11600,10 @@ loglevel@^1.6.8:
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.7.1.tgz#005fde2f5e6e47068f935ff28573e125ef72f197"
   integrity sha512-Hesni4s5UkWkwCGJMQGAh71PaLUmKFM60dHvq0zi/vDhhrzuk+4GgNbTXJ12YYQJn6ZKBDNIjYcuQGKudvqrIw==
 
-logrocket@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-1.0.14.tgz#afe61a6b993691a706154e83fe2c05e8174a650d"
-  integrity sha512-notwwiIiXOmWSKQDsW8UrFJPu81u9rd6YaIFBmx6uF0XtXXwNQ+Mvteh5WHdABWcQ2nN4I7QkQrCAocYDx7OVg==
+logrocket@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-1.2.0.tgz#eda798f38ab9f1b7279944d4701cbe19e1c1645e"
+  integrity sha512-HjYP4QstXT6+VynVpY7K6xcMj5RjbW7jdYj1iybcskM53jqSnKmCxf8Gov9SirhaKjGlOTJ1Zquoj27M/E4QZQ==
 
 long@^4.0.0:
   version "4.0.0"
