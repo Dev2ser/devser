@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import { IconContext } from 'react-icons';
 import { IoMdRefresh, IoIosAddCircleOutline } from 'react-icons/io';
-import { ImHome } from 'react-icons/im';
-import { DocHeader, Modal, Subject, Header } from '../../components';
+// import { ImHome } from 'react-icons/im';
+import { SEO, TransitionedModal, Subject, Header } from '../../components';
 import Navigation from '../Portfolio/views/Navigation';
 import { db } from '../../config/base';
-import { getUser } from '../../service/Authentication';
-import { reloadWindow } from '../../service/WindowHandler';
+import { getUser } from '../../services/Authentication';
+import { reloadWindow } from '../../services/WindowHandler';
 
 export function Subjects() {
   const [subjects, setSubjects] = useState();
@@ -43,7 +43,7 @@ export function Subjects() {
         });
     };
     fetchData();
-  }, []);
+  }, [userId]);
 
   setInterval(() => {
     console.log(subjects);
@@ -79,19 +79,26 @@ export function Subjects() {
     setError(state);
     setErrorMessage(message);
   };
+
+  const onModalClose = () => {
+    setShowModal(false)
+  }
+  
   return (
-    <React.Fragment>
-      {!showModal ? null : (
-        <Modal
-          heading="Create Subject"
-          actionLabel="Create"
-          actionBgColor="bg-indigo-700" // only colors in tailwind.config.js file allowed
-          actionHoverBgColor="bg-indigo-600" // only colors in tailwind.config.js file allowed
-          actionOutlineColor="ring-indigo-500" // only colors in tailwind.config.js file allowed
-          onAction={onCreate}
-          onChangeModalState={onChangeModalState}
-        >
-          <div>
+    <div>
+      <TransitionedModal 
+      open={showModal} 
+      onChangeState={onChangeModalState} 
+      heading="Create Subject" 
+      iconColor="text-indigo-600" // only colors in tailwind.config.js file allowed
+      actionLabel="Create"
+      actionBgColor="bg-indigo-700" // only colors in tailwind.config.js file allowed
+      actionHoverBgColor="bg-indigo-600" // only colors in tailwind.config.js file allowed
+      actionOutlineColor="ring-indigo-500" // only colors in tailwind.config.js file allowed
+      onAction={onCreate}
+      onClose={onModalClose} 
+      >
+        <div>
             <div className="grid grid-cols-3 gap-4">
               <div className="col-span-3 sm:col-span-3">
                 <label
@@ -159,9 +166,8 @@ export function Subjects() {
               </p>
             </div>
           </div>
-        </Modal>
-      )}
-      <DocHeader>Subjects</DocHeader>
+      </TransitionedModal>
+      <SEO title="Subjects"/>
       <Navigation />
       <Header title="Subjects" />
       <IconContext.Provider
@@ -207,6 +213,6 @@ export function Subjects() {
           </div>
         </div>
       </section>
-    </React.Fragment>
+    </div>
   );
 }

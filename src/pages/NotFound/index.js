@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line
 import PageNotFound from '../../assets/images/PageNotFound.png';
-import { DocHeader, GoBack } from '../../components';
+import { SEO, GoBack } from '../../components';
 
 const containerStyles = {
   width: '100%',
@@ -21,7 +21,7 @@ const contentStyles = {
 
 export const NotFound = ({ location }) => (
   <div style={containerStyles}>
-    <DocHeader>NotFound</DocHeader>
+    <SEO title="NotFound"/>
 
     {/* <img
       alt="404"

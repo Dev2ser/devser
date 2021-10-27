@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class FAQ extends Component {
+export default class FAQ extends React.Component {
   componentDidMount() {
     require('../scss/FAQ.scss');
   }

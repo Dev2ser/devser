@@ -11,6 +11,8 @@ import {
   SignInRoute,
   SignUpRoute,
   SubjectsRoute,
+  PDFViewerRoute,
+  EditorRoute,
 } from '../routes';
 import './App.css';
 
@@ -81,6 +83,20 @@ export default class App extends Component {
             path={'/subjects'}
             render={(props) => (
               <SubjectsRoute {...props} user={this.state.user} />
+            )}
+          />
+          <Route
+            exact
+            path={'/pdf'}
+            render={(props) => (
+              <PDFViewerRoute {...props} user={this.state.user} />
+            )}
+          />
+          <Route
+            exact
+            path={'/editor'}
+            render={(props) => (
+              <EditorRoute {...props} user={this.state.user} />
             )}
           />
           {/* <Route exact path={'/users'} component={UsersPanel} /> */}

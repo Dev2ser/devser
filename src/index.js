@@ -6,7 +6,7 @@ import LogRocket from 'logrocket';
 import App from './App/App';
 import { ErrorBoundary, ThemeProvider } from './components';
 import './index.css';
-import { reloadWindow } from './service/WindowHandler';
+import { reloadWindow } from './services/WindowHandler';
 import * as serviceWorker from './serviceWorker';
 LogRocket.init(process.env.REACT_APP_LOGROCKET);
 

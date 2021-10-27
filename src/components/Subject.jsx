@@ -2,10 +2,10 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { FiEdit } from 'react-icons/fi';
 import { db } from '../config/base';
-import { getUser } from '../service/Authentication';
-import { prefixLink } from '../service/Helpers';
-import { openWindow, reloadWindow } from '../service/WindowHandler';
-import { Button, SlideOver, Form } from './index';
+import { getUser } from '../services/Authentication';
+import { prefixLink } from '../services/Helpers';
+import { openWindow, reloadWindow } from '../services/WindowHandler';
+import { Button, TransitionedSlideOver, Form } from './index';
 
 export function Subject({ subject }) {
   const [name, setName] = useState(subject.name);
@@ -17,7 +17,7 @@ export function Subject({ subject }) {
   const userId = user.uid;
   const subjectsRef = db.collection('users').doc(userId).collection('subjects');
 
-  const onClose = () => {
+  const onSlideOverClose = () => {
     setIsEditing(false);
   };
 
@@ -39,6 +39,10 @@ export function Subject({ subject }) {
 
   const onDelete = () => {
     subjectsRef.doc(subject.id).delete().then(reloadWindow);
+  };
+
+  const onChangeSlideOverState = () => {
+    setIsEditing(!isEditing);
   };
 
   return (
@@ -86,21 +90,24 @@ export function Subject({ subject }) {
           </div>
         </div>
       </div>
-      {isEditing ? (
-        <SlideOver onCloseHandler={onClose} data={subject}>
-          <Form
-            data={subject}
-            name={name}
-            src={src}
-            description={description}
-            setName={setName}
-            setSrc={setSrc}
-            setDescription={setDescription}
-            deletionHandler={onDelete}
-            updateHandler={onUpdate}
-          />
-        </SlideOver>
-      ) : null}
+      <TransitionedSlideOver
+        open={isEditing}
+        onChangeState={onChangeSlideOverState}
+        onClose={onSlideOverClose}
+        data={subject}
+      >
+        <Form
+          data={subject}
+          name={name}
+          src={src}
+          description={description}
+          setName={setName}
+          setSrc={setSrc}
+          setDescription={setDescription}
+          deletionHandler={onDelete}
+          updateHandler={onUpdate}
+        />
+      </TransitionedSlideOver>
     </React.Fragment>
   );
 }

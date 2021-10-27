@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../../../assets/icons/logo.svg';
 import { List, Social, MailBox } from '../../../components';
 import { skillsData } from '../../../data/skillsData';
+import { FooterSection } from '../../../data/pageData';
 
 let rawSkills = [];
 skillsData.map((skill) => rawSkills.push(skill.name));
@@ -16,11 +17,15 @@ export default class Footer extends React.Component {
       <footer id="footer" className="text-gray-700 body-font">
         <div className="container px-5 py-0 mx-auto md:py-24">
           <div className=" hidden md:flex flex-wrap md:text-left text-center order-first">
-            <List
-              heading="SECTIONS"
-              items={['Hero', 'About', 'Journey', 'Skills', 'Contact']}
-            />
-            <List heading="SKILLS" items={rawSkills} />
+            {FooterSection.headings.map((heading) => {
+              return (
+                <List
+                  key={heading.id}
+                  heading={heading.title}
+                  items={heading.items}
+                />
+              );
+            })}
             <MailBox />
           </div>
         </div>

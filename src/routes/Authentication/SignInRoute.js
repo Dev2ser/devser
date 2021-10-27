@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { SignIn } from '../../components';
+import { SignIn } from '../../components/';
 
 export class SignInRoute extends Component {
   // eslint-disable-next-line

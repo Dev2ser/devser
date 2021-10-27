@@ -1,6 +1,6 @@
 export { ResetPassword, SignIn, SignUp } from './Auth';
-export { Button } from './Button';
-export { DocHeader } from './DocHeader';
+export { Button } from './Buttons';
+export { SEO } from './SEO';
 export { ErrorBoundary } from './Error/ErrorBoundary';
 export { Logo } from './Logo';
 export { ActionItem, NavItem } from './NavElements';
@@ -11,9 +11,10 @@ export { List, ExtendedList } from './Lists';
 export { GoBack } from './GoBack';
 export { Delay } from './Delay';
 export { Banner } from './Banner';
-export { Modal } from './Modal';
-export { SlideOver } from './SlideOver';
+export { TransitionedModal, Modal } from './Modal';
+export { TransitionedSlideOver, SlideOver } from './SlideOver';
 export { MailBox } from './MailBox';
 export { ContactBox } from './ContactBox';
 export { Form } from './Form';
 export { Header, HeaderWithAction } from './Headers';
+export { TransitionedNavBar, NavBar } from './NavBars/NavBars'

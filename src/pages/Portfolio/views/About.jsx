@@ -1,5 +1,6 @@
 import React from 'react';
 import { AboutSection } from '../../../data/pageData';
+import { Button, OutlinedButton } from '../../../components/Buttons';
 
 export default class About extends React.Component {
   componentDidMount() {
@@ -34,12 +35,23 @@ export default class About extends React.Component {
               {AboutSection.subDescription}
             </p>
             <div className="flex justify-center">
-              <button className="inline-flex py-2 px-6 focus:outline-none rounded text-lg cv">
-                {AboutSection.primaryButtonLabel}
-              </button>
-              <button className="ml-4 inline-flex py-2 px-8 focus:outline-none rounded text-lg skills">
-                {AboutSection.secondaryButtonLabel}
-              </button>
+              <a href={AboutSection.primaryButtonLink}>
+                <Button color="rgb(255, 255, 255)" bgColor="rgb(219, 59, 97)">
+                  {AboutSection.primaryButtonLabel}
+                </Button>
+              </a>
+              <a href={AboutSection.secondaryButtonLink}>
+                <OutlinedButton
+                  color="rgb(219, 59, 97)"
+                  bgColor="rgb(255, 255, 255)"
+                  borderColor="rgb(219, 59, 97)"
+                  hoverColor="rgb(255, 255, 255)"
+                  hoverBgColor="rgb(219, 59, 97)"
+                  style={{ marginLeft: '1rem' }}
+                >
+                  {AboutSection.secondaryButtonLabel}
+                </OutlinedButton>
+              </a>
             </div>
           </div>
         </div>
