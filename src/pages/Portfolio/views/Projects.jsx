@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Projects extends Component {
+export default class Projects extends React.Component {
   componentDidMount() {
     require('../scss/Projects.scss');
   }

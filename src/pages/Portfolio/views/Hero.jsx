@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroSection } from '../../../data/pageData';
+import { Button } from '../../../components/Buttons';
 
 export default class Hero extends React.Component {
   componentDidMount() {
@@ -32,12 +33,23 @@ export default class Hero extends React.Component {
               </p>
             ) : null}
             <div className="flex justify-center">
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                {HeroSection.primaryButtonLabel}
-              </button>
-              <button className="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">
-                {HeroSection.secondaryButtonLabel}
-              </button>
+              <a href={HeroSection.primaryButtonLink}>
+                <Button
+                  color="rgba(255, 255, 255)"
+                  bgColor="rgba(102, 126, 234)"
+                >
+                  {HeroSection.primaryButtonLabel}
+                </Button>
+              </a>
+              <a href={HeroSection.secondaryButtonLink}>
+                <Button
+                  color="rgba(74, 85, 104)"
+                  bgColor="rgba(237, 242, 247)"
+                  style={{ marginLeft: '1rem' }}
+                >
+                  {HeroSection.secondaryButtonLabel}
+                </Button>
+              </a>
             </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">

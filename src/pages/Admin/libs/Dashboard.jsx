@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { DocHeader } from '../../../components';
-import { SwitchWithIcons } from '../../../components';
-import { Logout, getUser } from '../../../service/Authentication';
+import { SEO, SwitchWithIcons } from '../../../components';
+import { Logout, getUser } from '../../../services/Authentication';
 
 export default function Dashboard() {
   const user = getUser();
@@ -13,7 +12,7 @@ export default function Dashboard() {
 
   return (
     <div className="align-items-center parent">
-      <DocHeader>Dashboard</DocHeader>
+      <SEO title="Dashboard" />
       <SwitchWithIcons />
       <h3 className="state">Logged in as {user.email}!</h3>
       <button

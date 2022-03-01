@@ -14,7 +14,7 @@ import {
   Grow,
 } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
-import { DocHeader } from '../../index';
+import { SEO } from '../../index';
 import { auth } from '../../../config/base';
 import './ResetPassword.scss';
 
@@ -127,7 +127,7 @@ export function ResetPassword() {
   return (
     <Grow in={true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
-        <DocHeader>Reset Password</DocHeader>
+        <SEO title="Reset Password" />
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

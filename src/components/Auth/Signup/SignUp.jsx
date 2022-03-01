@@ -20,9 +20,9 @@ import {
 } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { DocHeader } from '../../index';
+import { SEO } from '../../index';
 import { db, auth } from '../../../config/base';
-import { getUser } from '../../../service/Authentication';
+import { getUser } from '../../../services/Authentication';
 import './SignUp.scss';
 
 function Copyright() {
@@ -90,6 +90,7 @@ export function SignUp() {
   const [error, isError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // TODO: extract to validation function!
   // eslint-disable-next-line
   const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
@@ -254,7 +255,7 @@ export function SignUp() {
   return (
     <Grow in={true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
-        <DocHeader>Sign-Up</DocHeader>
+        <SEO title="Sign-Up" />
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

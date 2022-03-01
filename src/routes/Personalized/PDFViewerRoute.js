@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { SignIn } from '../../components/';
-import { Subjects } from '../../pages/';
+import { PDFViewer } from '../../pages/';
 
-export class SubjectsRoute extends Component {
+export class PDFViewerRoute extends Component {
   // eslint-disable-next-line
   constructor(props) {
     super(props);
@@ -11,12 +11,12 @@ export class SubjectsRoute extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.user ? <Subjects /> : <SignIn />}
+        {this.props.user ? <PDFViewer /> : <SignIn />}
       </React.Fragment>
     );
   }
 }
 
-SubjectsRoute.propTypes = {
+PDFViewerRoute.propTypes = {
   user: PropTypes.object,
 };

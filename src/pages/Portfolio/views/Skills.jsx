@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { IconContext } from 'react-icons';
 import {
   FaHtml5,
@@ -12,9 +12,10 @@ import {
   FaBootstrap,
 } from 'react-icons/fa';
 import { SiJavascript, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import { SkillsSection } from '../../../data/pageData';
 import { skillsData } from '../../../data/skillsData';
 
-export default class Skills extends Component {
+export default class Skills extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -88,16 +89,14 @@ export default class Skills extends Component {
           className: 'text-indigo-500 w-12 h-12 mb-3 inline-block',
         }}
       >
-        <section id="skills" className="text-gray-700 body-font my-12">
+        <section id="skills" className="text body-font my-12">
           <div className="container px-5 py-12 mx-auto">
             <div className="flex flex-col text-center w-full mb-20">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-12 text-gray-900">
-                Skills and Expertise
+                {SkillsSection.headline}
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                Over the past 3 years, I have been continuously learning new
-                technologies nonstop, these are the ones I have enough knowledge
-                about to use.
+                {SkillsSection.description}
               </p>
             </div>
             <div className="flex flex-wrap -m-4 text-center">
@@ -109,7 +108,7 @@ export default class Skills extends Component {
           ) : (
             <div className="container w-full mx-auto text-center">
               <button className="" onClick={this.onLoadMore}>
-                Load more
+                {SkillsSection.primaryButtonLabel}
               </button>
             </div>
           )}

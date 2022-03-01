@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { DocHeader } from '../../index';
+import { SEO } from '../../index';
 import { auth } from '../../../config/base';
 import './SignIn.scss';
 
@@ -193,7 +193,7 @@ export function SignIn() {
   return (
     <Grow in={true} mountOnEnter unmountOnExit>
       <Container component="main" maxWidth="xs">
-        <DocHeader>Sign-In</DocHeader>
+        <SEO title="Sign-In" />
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

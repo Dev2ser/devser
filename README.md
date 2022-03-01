@@ -42,24 +42,26 @@ You can also view this in other languages: English | [عربية](https://github
 
 - [About the Author](#about-the-author)
 - [Prerequisites](#prerequisites)
-- [Installation](#installation)
+- [Run Locally](#run-locally)
+- [Environment Variables](#environment-variables)
+- [Running Tests](#running-tests)
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
 - [License](#license)
 
-# About the Author
+## About the Author
 
 Hello 👋, My name is Yasser a High school student with high ambitions.<br />
 hoping to get a scholarship in a top university.
 
-# Prerequisites
+## Prerequisites
 
 - Node version 12.13 or higher.
 - Yarn.
 - Git.
 - Python version 3.6.3.
 
-# Installation
+## Run Locally
 
 You can get the project's source code in 3 different ways:
 
@@ -71,25 +73,58 @@ You can get the project's source code in 3 different ways:
 
 3. or by downloading the source code!
 
-After installing the project, run the following command to install the project dependencies:
+After cloning/downloading the project's source code, run the following command in the root folder to install the project's dependencies:
 
 ```bash
 yard add
 ```
 
-Then to run the code, run the following command:
+Then to run the code, execute the following command:
 
 ```bash
 yarn start
 ```
 
-# Available Scripts
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file.<br />
+you will need to create a project at [Firebase](https://firebase.google.com/) to get these environment variables.
+
+`API_KEY`
+
+`AUTH_DOMAIN`
+
+`DATABASE_URL`
+
+`PROJECT_ID`
+
+`STORAGE_BUCKET`
+
+`MESSAGING_SENDER_ID`
+
+`APP_ID`
+
+`MEASUREMENT_ID`
+
+## Running Tests
+
+To run tests, run the following command:
+
+```bash
+  yarn run test
+```
+
+## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn run git:python`
+### `yarn run python:git`
 
 Runs the python application located in the python folder.
+
+### `yarn run analyze`
+
+Generates a treemap visualization to help you debug where all the code is coming from.
 
 ### `yarn start`
 
@@ -133,7 +168,7 @@ Deploys all files in `/docs` to https://dev2ser.github.io/devser.
 
 Deploys the project to [firebase](https://console-devser.firebaseapp.com).
 
-# Contributing
+## Contributing
 
 If you want to contribute simply get the source code [(Guide)](https://github.com/Dev2ser/devser#installation),
 and do anything with it that you think is better and will improve the project, and create a pull request.<br />
@@ -141,6 +176,6 @@ It will be reviewed, if it's helpful in any way it will be merged.
 
 Also, please read the [CONTRIBUTING](https://github.com/Dev2ser/devser/blob/master/CONTRIBUTING.md) Guide.
 
-# License
+## License
 
 This project uses [MIT's license](https://opensource.org/licenses/MIT).

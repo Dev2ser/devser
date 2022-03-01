@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocHeader } from '../../components';
+import { SEO } from '../../components';
 import Navigation from './views/Navigation';
 import Hero from './views/Hero';
 import About from './views/About';
@@ -19,7 +19,7 @@ export class Portfolio extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DocHeader></DocHeader>
+        <SEO title="Home"/>
         <Navigation />
         <Hero />
         <About />
