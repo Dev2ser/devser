@@ -45,7 +45,7 @@
     "logrocket": "^1.0.14",
     "node-sass": "^4.14.1",
     "pdfjs-dist": "2.6.347",
-    "postcss": "^8.2.1",
+    "postcss": "^8.2.13",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-blockly": "^6.0.1",
