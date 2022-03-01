@@ -218,6 +218,7 @@ export function SignUp() {
             email: email,
             isVerified: false,
             created_on: u.user.metadata.creationTime,
+            numberOfSubjects: 0,
           });
         })
         .then((u) => {

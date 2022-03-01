@@ -39,10 +39,13 @@ export function Users() {
                     UID
                   </th>
                   <th className="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Status
+                    Created On
                   </th>
                   <th className="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Role
+                    Verified
+                  </th>
+                  <th className="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                    Subjects
                   </th>
                   <th className="px-6 py-3 bg-gray-50"></th>
                 </tr>
@@ -85,6 +88,11 @@ export function Users() {
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm leading-5 font-medium text-gray-700">
+                              {String(user.created_on)}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
                             <span
                               className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 ${
                                 user.isVerified
@@ -96,7 +104,7 @@ export function Users() {
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm leading-5 text-gray-500">
-                            Admin
+                            {String(user.numberOfSubjects)}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap leading-5 font-medium">
                             <button className="outline-none text-indigo-600 hover:text-indigo-900 text-sm font-medium">

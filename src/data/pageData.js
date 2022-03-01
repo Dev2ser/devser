@@ -1,7 +1,7 @@
-import { skillsData } from './skillsData'
+import { skillsData } from './skillsData';
 
-let items = []
-skillsData.map((skill) => items.push(skill.name))
+let items = [];
+skillsData.map((skill) => items.push(skill.name));
 
 export const NavigationSection = {
   lightBg: false,
@@ -26,6 +26,10 @@ export const NavigationSection = {
     {
       name: 'Subjects',
       href: '/subjects',
+    },
+    {
+      name: 'PDF Viewer',
+      href: '/pdf',
     },
   ],
   actionMenu: [
@@ -95,11 +99,12 @@ export const SkillsSection = {
   lightBg: true,
   lightText: false,
   headline: 'Skills and Expertise',
-  description: 'Over the past 3 years, I have been continuously learning new technologies and languages, these are the ones I have most knowledge about to use.',
+  description:
+    'Over the past 3 years, I have been continuously learning new technologies and languages, these are the ones I have most knowledge about to use.',
   subDescription: null,
   primaryButtonLabel: 'Load More',
   primaryButtonLink: null,
-}
+};
 
 export const ContactSection = {
   primary: true,
@@ -128,13 +133,13 @@ export const FooterSection = {
   headings: [
     {
       id: 1,
-      title: "SECTIONS",
-      items: ['Hero', 'About', 'Journey', 'Skills', 'Contact']
+      title: 'SECTIONS',
+      items: ['Hero', 'About', 'Journey', 'Skills', 'Contact'],
     },
     {
       id: 2,
-      title: "SKILLS",
+      title: 'SKILLS',
       items: [...items],
-    }
-  ]
+    },
+  ],
 };

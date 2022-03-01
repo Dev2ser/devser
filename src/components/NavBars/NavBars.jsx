@@ -550,10 +550,11 @@ export function NavBar() {
               </div>
               <div className="ml-3">
                 <div className="text-base font-medium leading-none text-white">
-                  {userData.username || displayName}
+                  {displayName || 'Loading..'}
+                  {/* userData.username */}
                 </div>
                 <div className="mt-1 text-sm font-medium leading-none text-gray-400">
-                  {email}
+                  {email || 'Loading..'}
                 </div>
               </div>
             </div>
