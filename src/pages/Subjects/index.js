@@ -3,8 +3,13 @@ import firebase from 'firebase/app';
 import { IconContext } from 'react-icons';
 import { IoMdRefresh, IoIosAddCircleOutline } from 'react-icons/io';
 // import { ImHome } from 'react-icons/im';
-import { SEO, TransitionedModal, Subject, Header } from '../../components';
-import Navigation from '../Portfolio/views/Navigation';
+import {
+  SEO,
+  TransitionedModal,
+  Subject,
+  Header,
+  NavBar,
+} from '../../components';
 import { db } from '../../config/base';
 import { getUser } from '../../services/Authentication';
 import { reloadWindow } from '../../services/WindowHandler';
@@ -64,6 +69,14 @@ export function Subjects() {
           description: newSubjectDescription,
           created_at: firebase.firestore.Timestamp.now(),
         })
+        .then(
+          db
+            .collection('users')
+            .doc(userId)
+            .update({
+              numberOfSubjects: firebase.firestore.FieldValue.increment(1),
+            })
+        )
         .then(reloadWindow);
     } else {
       setErrorState(true, 'Missing Fields');
@@ -81,95 +94,96 @@ export function Subjects() {
   };
 
   const onModalClose = () => {
-    setShowModal(false)
-  }
-  
+    setShowModal(false);
+  };
+
   return (
     <div>
-      <TransitionedModal 
-      open={showModal} 
-      onChangeState={onChangeModalState} 
-      heading="Create Subject" 
-      iconColor="text-indigo-600" // only colors in tailwind.config.js file allowed
-      actionLabel="Create"
-      actionBgColor="bg-indigo-700" // only colors in tailwind.config.js file allowed
-      actionHoverBgColor="bg-indigo-600" // only colors in tailwind.config.js file allowed
-      actionOutlineColor="ring-indigo-500" // only colors in tailwind.config.js file allowed
-      onAction={onCreate}
-      onClose={onModalClose} 
+      <TransitionedModal
+        open={showModal}
+        onChangeState={onChangeModalState}
+        heading="Create Subject"
+        iconColor="text-indigo-600" // only colors in tailwind.config.js file allowed
+        actionLabel="Create"
+        actionBgColor="bg-indigo-700" // only colors in tailwind.config.js file allowed
+        actionHoverBgColor="bg-indigo-600" // only colors in tailwind.config.js file allowed
+        actionOutlineColor="ring-indigo-500" // only colors in tailwind.config.js file allowed
+        onAction={onCreate}
+        onClose={onModalClose}
       >
         <div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="col-span-3 sm:col-span-3">
-                <label
-                  htmlFor="nameInput"
-                  className="block text-sm font-medium text-gray-700 text-left"
-                >
-                  Name
-                </label>
-                <div className="mt-1 flex rounded-md shadow-sm">
-                  <input
-                    type="text"
-                    id="nameInput"
-                    className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md text-sm border-gray-300 pl-2"
-                    placeholder="Subject's Name"
-                    value={newSubjectName}
-                    onChange={(e) => setNewSubjectName(e.target.value)}
-                    autoComplete="off"
-                  />
-                </div>
-              </div>
-              <div className="col-span-3 sm:col-span-3">
-                <label
-                  htmlFor="linkInput"
-                  className="block text-sm font-medium text-gray-700 text-left"
-                >
-                  Link
-                </label>
-                <div className="mt-1 flex rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 rounded-l-md border border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                    http://
-                  </span>
-                  <input
-                    type="text"
-                    id="linkInput"
-                    className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 pl-2"
-                    placeholder="www.example.com"
-                    value={newSubjectSrc}
-                    onChange={(e) => setNewSubjectSrc(e.target.value)}
-                    autoComplete="off"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-4">
+          <div className="grid grid-cols-3 gap-4">
+            <div className="col-span-3 sm:col-span-3">
               <label
-                htmlFor="about"
+                htmlFor="nameInput"
                 className="block text-sm font-medium text-gray-700 text-left"
               >
-                Description
+                Name
               </label>
-              <div className="mt-1">
-                <textarea
-                  id="about"
-                  rows={4}
-                  maxLength="96"
-                  className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md resize-none"
-                  value={newSubjectDescription}
-                  onChange={(e) => setNewSubjectDescription(e.target.value)}
+              <div className="mt-1 flex rounded-md shadow-sm">
+                <input
+                  type="text"
+                  id="nameInput"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md text-sm border-gray-300 pl-2"
+                  placeholder="Subject's Name"
+                  value={newSubjectName}
+                  onChange={(e) => setNewSubjectName(e.target.value)}
                   autoComplete="off"
                 />
               </div>
-              <p className="mt-2 text-sm text-gray-500">
-                Brief description for your subject. URLs are hyperlinked.
-                Maximum 96 characters allowed.
-              </p>
+            </div>
+            <div className="col-span-3 sm:col-span-3">
+              <label
+                htmlFor="linkInput"
+                className="block text-sm font-medium text-gray-700 text-left"
+              >
+                Link
+              </label>
+              <div className="mt-1 flex rounded-md shadow-sm">
+                <span className="inline-flex items-center px-3 rounded-l-md border border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                  http://
+                </span>
+                <input
+                  type="text"
+                  id="linkInput"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 pl-2"
+                  placeholder="www.example.com"
+                  value={newSubjectSrc}
+                  onChange={(e) => setNewSubjectSrc(e.target.value)}
+                  autoComplete="off"
+                />
+              </div>
             </div>
           </div>
+          <div className="mt-4">
+            <label
+              htmlFor="about"
+              className="block text-sm font-medium text-gray-700 text-left"
+            >
+              Description
+            </label>
+            <div className="mt-1">
+              <textarea
+                id="about"
+                rows={4}
+                maxLength="96"
+                className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md resize-none"
+                value={newSubjectDescription}
+                onChange={(e) => setNewSubjectDescription(e.target.value)}
+                autoComplete="off"
+              />
+            </div>
+            <p className="mt-2 text-sm text-gray-500">
+              Brief description for your subject. URLs are hyperlinked. Maximum
+              96 characters allowed.
+            </p>
+          </div>
+        </div>
       </TransitionedModal>
-      <SEO title="Subjects"/>
-      <Navigation />
+      <SEO title="Subjects" />
+      <NavBar />
       <Header title="Subjects" />
+      {/* <Dropdown /> */}
       <IconContext.Provider
         value={{
           color: 'rgba(102, 126, 234, 1)',

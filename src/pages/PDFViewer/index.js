@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { dropPlugin } from '@react-pdf-viewer/drop';
-import { SEO, Header } from '../../components';
-import Navigation from '../Portfolio/views/Navigation';
+import { SEO, Header, NavBar } from '../../components';
 
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
@@ -25,7 +24,7 @@ export function PDFViewer() {
     <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
       <div>
         <SEO title="PDF Viewer"/>
-        <Navigation />
+        <NavBar />
         <Header title="PDF Viewer" />
         <input
           type="file"

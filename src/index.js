@@ -8,7 +8,11 @@ import { ErrorBoundary, ThemeProvider } from './components';
 import './index.css';
 import { reloadWindow } from './services/WindowHandler';
 import * as serviceWorker from './serviceWorker';
-LogRocket.init(process.env.REACT_APP_LOGROCKET);
+try {
+  LogRocket.init(process.env.REACT_APP_LOGROCKET);
+} catch (error) {
+  console.log(error);
+}
 
 ReactDOM.render(
   <HttpsRedirect>

@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { FiEdit } from 'react-icons/fi';
+import firebase from 'firebase/app';
 import { db } from '../config/base';
 import { getUser } from '../services/Authentication';
 import { prefixLink } from '../services/Helpers';
@@ -38,7 +39,18 @@ export function Subject({ subject }) {
   };
 
   const onDelete = () => {
-    subjectsRef.doc(subject.id).delete().then(reloadWindow);
+    subjectsRef
+      .doc(subject.id)
+      .delete()
+      .then(
+        db
+          .collection('users')
+          .doc(userId)
+          .update({
+            numberOfSubjects: firebase.firestore.FieldValue.increment(-1),
+          })
+      )
+      .then(reloadWindow);
   };
 
   const onChangeSlideOverState = () => {
