@@ -42,7 +42,7 @@
     "firebase-admin": "^8.9.2",
     "firebaseui": "^4.5.0",
     "formik": "^2.2.6",
-    "logrocket": "^1.0.14",
+    "logrocket": "^3.0.0",
     "node-sass": "^4.14.1",
     "pdfjs-dist": "2.6.347",
     "postcss": "^8.2.1",
