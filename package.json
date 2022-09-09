@@ -43,7 +43,7 @@
     "firebaseui": "^4.5.0",
     "formik": "^2.2.6",
     "logrocket": "^1.0.14",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.3",
     "pdfjs-dist": "2.6.347",
     "postcss": "^8.2.1",
     "prop-types": "^15.7.2",
