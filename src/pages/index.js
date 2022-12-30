@@ -5,4 +5,5 @@ export { Portfolio } from './Portfolio';
 export { Subjects } from './Subjects';
 export { Users } from './Users';
 export { PDFViewer } from './PDFViewer';
-export { Editor } from './Editor'
+export { Editor } from './Editor';
+export * from './Projects';

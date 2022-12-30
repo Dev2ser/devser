@@ -217,7 +217,7 @@ export function SignIn() {
               label="Email Address"
               type="email"
               autoComplete="email"
-              autoFocus
+              // autoFocus
               inputProps={{ style: inputStyle }}
             />
             <TextField
@@ -234,7 +234,7 @@ export function SignIn() {
               label="Password"
               type={showPassword ? 'text' : 'password'}
               autoComplete="current-password"
-              inputProps={{ style: inputStyle }}
+              // inputProps={{ style: inputStyle }}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">

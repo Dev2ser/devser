@@ -42,8 +42,7 @@ export function Subjects() {
           );
         })
         .catch((err) => {
-          setError(true);
-          setErrorMessage("Couldn't Load Subjects");
+          setErrorState(true, "Couldn't Load Subjects");
           console.log(err);
         });
     };
@@ -95,6 +94,9 @@ export function Subjects() {
 
   const onModalClose = () => {
     setShowModal(false);
+    setNewSubjectName('');
+    setNewSubjectSrc('');
+    setNewSubjectDescription('');
   };
 
   return (
@@ -119,6 +121,14 @@ export function Subjects() {
                 className="block text-sm font-medium text-gray-700 text-left"
               >
                 Name
+                <mark
+                  style={{
+                    color: 'red',
+                    backgroundColor: 'transparent',
+                  }}
+                >
+                  *
+                </mark>
               </label>
               <div className="mt-1 flex rounded-md shadow-sm">
                 <input
@@ -138,6 +148,14 @@ export function Subjects() {
                 className="block text-sm font-medium text-gray-700 text-left"
               >
                 Link
+                <mark
+                  style={{
+                    color: 'red',
+                    backgroundColor: 'transparent',
+                  }}
+                >
+                  *
+                </mark>
               </label>
               <div className="mt-1 flex rounded-md shadow-sm">
                 <span className="inline-flex items-center px-3 rounded-l-md border border-gray-300 bg-gray-50 text-gray-500 text-sm">
@@ -157,14 +175,14 @@ export function Subjects() {
           </div>
           <div className="mt-4">
             <label
-              htmlFor="about"
+              htmlFor="description"
               className="block text-sm font-medium text-gray-700 text-left"
             >
               Description
             </label>
             <div className="mt-1">
               <textarea
-                id="about"
+                id="description"
                 rows={4}
                 maxLength="96"
                 className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md resize-none"

@@ -20,16 +20,16 @@ export const NavigationSection = {
       href: '/#journey',
     },
     {
-      name: 'Skills',
-      href: '/#skills',
-    },
-    {
       name: 'Subjects',
       href: '/subjects',
     },
     {
       name: 'PDF Viewer',
       href: '/pdf',
+    },
+    {
+      name: 'Talent Week',
+      href: '/projects/talentweek',
     },
   ],
   actionMenu: [

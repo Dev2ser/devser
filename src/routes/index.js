@@ -6,3 +6,4 @@ export { SubjectsRoute } from './Personalized/SubjectsRoute';
 export { PDFViewerRoute } from './Personalized/PDFViewerRoute';
 export { EditorRoute } from './Personalized/EditorRoute'
 export { PrivateRoute } from './PrivateRoute';
+export { ProjectsRoute } from './ProjectsRoute'
