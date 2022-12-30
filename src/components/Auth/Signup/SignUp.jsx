@@ -281,7 +281,7 @@ export function SignUp() {
                   label="Username"
                   type="text"
                   autoComplete="username"
-                  autoFocus
+                  // autoFocus
                   inputProps={{ style: inputStyle }}
                 />
               </Grid>
@@ -380,7 +380,7 @@ export function SignUp() {
                   label="Password"
                   type={showPassword ? 'text' : 'password'}
                   autoComplete="new-password"
-                  inputProps={{ style: inputStyle }}
+                  // inputProps={{ style: inputStyle }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">

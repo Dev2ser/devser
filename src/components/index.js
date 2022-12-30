@@ -17,4 +17,5 @@ export { MailBox } from './MailBox';
 export { ContactBox } from './ContactBox';
 export { Form } from './Form';
 export { Header, HeaderWithAction } from './Headers';
-export { TransitionedNavBar, NavBar } from './NavBars/NavBars'
+export { TransitionedNavBar, NavBar } from './NavBars/NavBars';
+export { Dropdown } from './Dropdowns';

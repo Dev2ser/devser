@@ -32,10 +32,13 @@ export function Subject({ subject }) {
   };
 
   const onUpdate = () => {
-    subjectsRef
-      .doc(subject.id)
-      .set({ ...subject, name, src, description })
-      .then(reloadWindow);
+    if (name !== '' && src !== '') {
+      subjectsRef
+        .doc(subject.id)
+        .set({ ...subject, name, src, description })
+        .then(reloadWindow);
+    } else {
+    }
   };
 
   const onDelete = () => {

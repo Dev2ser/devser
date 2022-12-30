@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LogRocket from 'logrocket';
 import { auth } from '../config/base';
 import { ResetPassword } from '../components';
-import { NotFound, Users } from '../pages';
+import { NotFound, Users, Projects } from '../pages';
 import {
   AccountRoute,
   BaseRoute,
@@ -13,6 +13,7 @@ import {
   SubjectsRoute,
   PDFViewerRoute,
   EditorRoute,
+  ProjectsRoute,
 } from '../routes';
 import './App.css';
 
@@ -23,6 +24,7 @@ export default class App extends Component {
       user: null,
     };
   }
+
   authListener = () => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -42,6 +44,7 @@ export default class App extends Component {
   componentDidMount() {
     this.authListener();
   }
+
   render() {
     return (
       <div className="App">
@@ -99,6 +102,12 @@ export default class App extends Component {
               <EditorRoute {...props} user={this.state.user} />
             )}
           />
+          <Route
+            exact
+            path={'/projects/:projectId'}
+            component={ProjectsRoute}
+          />
+          <Route exact path={'/projects'} component={Projects} />
           {/* <Route exact path={'/users'} component={UsersPanel} /> */}
           <PrivateRoute exact path={'/users'} component={Users} />
           <Route component={NotFound} />
