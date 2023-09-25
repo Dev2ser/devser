@@ -40,7 +40,6 @@ You can also view this in other languages: English | [عربية](https://github
 
 <hr>
 
-- [About the Author](#about-the-author)
 - [Prerequisites](#prerequisites)
 - [Run Locally](#run-locally)
 - [Environment Variables](#environment-variables)
@@ -48,11 +47,6 @@ You can also view this in other languages: English | [عربية](https://github
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
 - [License](#license)
-
-## About the Author
-
-Hello 👋, My name is Yasser a High school student with high ambitions.<br />
-hoping to get a scholarship in a top university.
 
 ## Prerequisites
 
